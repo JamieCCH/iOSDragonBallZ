@@ -89,22 +89,15 @@ class DialogScene: SKScene {
         addChild(mugShot)
     }
     
-
-
-
+    
     
     func dialogueCut(Cut cut:Int){
-        
-        let fadeOut = SKAction.fadeOut(withDuration: 1)
-        let fadeIn = SKAction.fadeIn(withDuration: 1)
-        let fadeSeq = SKAction.sequence([fadeIn,fadeOut])
         
         if(PiccoloIsTalking){
             fadeCharacter(Name: GohanSprite, IsOut: true)
             fadeCharacter(Name: PiccoloSprite, IsOut: false)
             dialogueLabel.color = UIColor.init(displayP3Red: 0.55, green:0.94, blue:0.69, alpha:1.0)
         }else{
-//            dialogueLabel.run(fadeIn)
             fadeCharacter(Name: GohanSprite, IsOut: false)
             fadeCharacter(Name: PiccoloSprite, IsOut: true)
             dialogueLabel.color = UIColor.white
@@ -113,32 +106,38 @@ class DialogScene: SKScene {
         if cut == 0 {
             if PiccoloIsTalking{
                 dialogueLabel.text = "Kid, Now I've taught you all. Let's do some practical fighting tests"
+                PiccoloSprite.texture = PiccoloFrames[0]
             }else{
                 dialogueLabel.text = "Uh? I thought you're gonna show me more skills, aren't you?"
+                GohanSprite.texture = GohanFrames[0]
                 oneCutFinished = true;
             }
         }else if cut == 1 {
             if PiccoloIsTalking{
                 dialogueLabel.text = "No more. Time for you to do the real fight."
+                PiccoloSprite.texture = PiccoloFrames[1]
             }else{
                 dialogueLabel.text = "Auh... but I can't. I'm not ready yet."
+                GohanSprite.texture = GohanFrames[1]
                 oneCutFinished = true;
             }
         }else if cut == 2{
             if PiccoloIsTalking{
                 dialogueLabel.text = "Stop acting like a coward. I won't kill you. Just be tough!"
+                PiccoloSprite.texture = PiccoloFrames[2]
             }else{
                 dialogueLabel.text = "All right. I will try. Let's start."
+                GohanSprite.texture = GohanFrames[0]
                 oneCutFinished = true;
             }
         }
     }
     
     func fadeCharacter(Name name:SKSpriteNode, IsOut isOut:Bool){
-        let colorize = SKAction.colorize(with: UIColor.gray, colorBlendFactor: 1, duration: 0.5)
-        let fadeAlpha = SKAction.fadeAlpha(by: 0.7, duration: 0.5)
-        let fadeAlphaBack = SKAction.fadeAlpha(by: 1, duration: 0.5)
-        let colorBack = SKAction.colorize(with: UIColor.white, colorBlendFactor: 1, duration: 0.5)
+        let colorize = SKAction.colorize(with: UIColor.gray, colorBlendFactor: 1, duration: 0.2)
+        let fadeAlpha = SKAction.fadeAlpha(by: 0.6, duration: 0.2)
+        let fadeAlphaBack = SKAction.fadeAlpha(by: 1, duration: 0.2)
+        let colorBack = SKAction.colorize(with: UIColor.white, colorBlendFactor: 1, duration: 0.2)
         var changeLookSeq = SKAction()
         if isOut{
             changeLookSeq = SKAction.sequence([fadeAlpha,colorize])
@@ -151,8 +150,9 @@ class DialogScene: SKScene {
     func fadeDialogue()
     {
         let fadeOut = SKAction.fadeOut(withDuration: 1)
+        let wait = SKAction.wait(forDuration: 0.5)
         let fadeIn = SKAction.fadeIn(withDuration: 1)
-        let fadeSeq = SKAction.sequence([fadeIn,fadeOut])
+        let fadeSeq = SKAction.sequence([fadeOut,wait,fadeIn])
         dialogueLabel.run(fadeSeq)
     }
     
@@ -166,42 +166,16 @@ class DialogScene: SKScene {
         dialogueCut(Cut:0)
     }
     
-    override func update(_ currentTime: TimeInterval) {
-        
-    }
-    
     override func touchesBegan(_ touches: Set<UITouch>, with event: UIEvent?) {
-        PiccoloIsTalking = !PiccoloIsTalking
-//        fadeDialogue()
-        dialogueCut(Cut:cut)
-        if (oneCutFinished) {
-            cut += 1
-            oneCutFinished = false
-        }
-        
-        for t in touches {
-            let location = t.location(in: self)
-            let touchedNode = atPoint(location)
-            if touchedNode.name == "Gohan" {
-                fadeCharacter(Name: GohanSprite, IsOut: true)
-//                GohanSprite.texture = GohanFrames[0]
-            }
-            
-            if touchedNode.name == "Piccolo"{
-                PiccoloSprite.texture = PiccoloFrames[0]
-            }
-            
-            if t.tapCount == 2{
-//                fadeCharacter(IsOut: false)
+        if cut <= 2{
+            PiccoloIsTalking = !PiccoloIsTalking
+//            fadeDialogue()
+            dialogueCut(Cut:cut)
+            if (oneCutFinished) {
+                cut += 1
+                oneCutFinished = false
             }
         }
     }
-    
-    //p:Kid, Now I've taught you all. Let's do some practical fighting tests
-    //h:Uh? I thought you're gonna show me more, aren't you?
-    //p:No more. Time for you to do the real fight.
-    //h:Auh... but I can't. I'm not ready yet.
-    //p:Stop acting like a coward. I won't kill you. Just be tough!
-    //h:All right. I will try.
     
 }
