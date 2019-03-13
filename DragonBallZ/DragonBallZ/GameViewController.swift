@@ -26,7 +26,7 @@ class GameViewController: UIViewController {
         gamePlayScene = GameScene(size: skView.bounds.size)
         gamePlayScene.scaleMode = .aspectFit
         
-        skView.presentScene(dialogScene)
+        skView.presentScene(gamePlayScene)
     }
     
     override var prefersStatusBarHidden: Bool {

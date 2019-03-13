@@ -11,7 +11,52 @@ import GameplayKit
 
 class GameScene: SKScene {
     
-    private let background = SKSpriteNode(imageNamed: "budokai")
+    let velocityMultiplier: CGFloat = 0.12
+    
+    enum NodesZPosition: CGFloat{
+        case background, player, gamepad
+    }
+    
+    lazy var background:SKSpriteNode = {
+        var sprite = SKSpriteNode(imageNamed: "budokai")
+        sprite.zPosition = NodesZPosition.background.rawValue
+        sprite.size = frame.size
+        sprite.anchorPoint = CGPoint(x: 0.5, y: 0.0)
+        sprite.position = CGPoint(x: size.width / 2.0, y: 0.0)
+        return sprite
+    }()
+    
+    lazy var analogJoystick: AnalogJoystick = {
+        let js = AnalogJoystick(diameter: 100, colors: nil, images: (substrate: #imageLiteral(resourceName: "joystickBase"), stick: #imageLiteral(resourceName: "joystick")))
+        js.position = CGPoint(x: js.radius + 50, y: self.frame.size.height/5.5)
+        js.zPosition = NodesZPosition.gamepad.rawValue
+        return js
+    }()
+    
+    lazy var kickButton:SKSpriteNode = {
+        var sprite = SKSpriteNode(imageNamed: "buttonA")
+        sprite.setScale(0.6)
+        sprite.zPosition = NodesZPosition.gamepad.rawValue
+        sprite.position = CGPoint(x: self.size.width - 110, y: self.frame.size.height/4)
+        return sprite
+    }()
+    
+    lazy var punchButton:SKSpriteNode = {
+        var sprite = SKSpriteNode(imageNamed: "buttonB")
+        sprite.setScale(0.6)
+        sprite.zPosition = NodesZPosition.gamepad.rawValue
+        sprite.position = CGPoint(x: self.size.width - 160, y: self.frame.size.height/7.5)
+        return sprite
+    }()
+    
+    lazy var fireButton:SKSpriteNode = {
+        var sprite = SKSpriteNode(imageNamed: "buttonFire")
+        sprite.setScale(0.6)
+        sprite.zPosition = NodesZPosition.gamepad.rawValue
+        sprite.position = CGPoint(x: self.size.width - 60, y: self.frame.size.height/7.5)
+        return sprite
+    }()
+    
     
     private var GohanSprite = SKSpriteNode()
     private var GohanIdleFrames: [SKTexture] = []
@@ -37,25 +82,36 @@ class GameScene: SKScene {
     
     override init(size: CGSize){
         super.init(size: size)
-        
-        background.size = frame.size
-        background.anchorPoint = CGPoint(x: 0.5, y: 0.0)
-        background.position = CGPoint(x: size.width / 2.0, y: 0.0)
-        addChild(background)
-        
         buildIdleAnimation()
         setInitPosition()
     }
     
+    func setupNodes(){
+        addChild(background)
+        addChild(GohanSprite)
+        addChild(punchButton)
+        addChild(kickButton)
+        addChild(fireButton)
+    }
     
-    func setAnimate(SpriteNode:SKSpriteNode, TextureName:[SKTexture], Interval:Double, CanResize: Bool, CanRestore: Bool, KeyName:String){
-        SpriteNode.run(SKAction.repeatForever(
-            SKAction.animate(with: TextureName, timePerFrame:Interval, resize: CanRestore, restore: CanRestore)),withKey:KeyName)
+//    func setAnimate(SpriteNode:SKSpriteNode, TextureName:[SKTexture], Interval:Double, CanResize: Bool, CanRestore: Bool, KeyName:String){
+//        SpriteNode.run(SKAction.repeatForever(
+//            SKAction.animate(with: TextureName, timePerFrame:Interval, resize: CanRestore, restore: CanRestore)),withKey:KeyName)
+//    }
+    
+    func setupJoystick() {
+        addChild(analogJoystick)
+        
+        analogJoystick.trackingHandler = { [unowned self] data in
+            self.GohanSprite.position = CGPoint(x: self.GohanSprite.position.x + (data.velocity.x * self.velocityMultiplier),
+                                                y: self.GohanSprite.position.y + (data.velocity.y * self.velocityMultiplier))
+            self.GohanSprite.zRotation = data.angular
+        }
     }
     
     override func didMove(to view: SKView) {
-        addChild(GohanSprite)
-//        setAnimate(SpriteNode:GohanSprite,TextureName:GohanIdleFrames,Interval:0.2,CanResize:true,CanRestore:true,KeyName: "GohanIdle")
+        setupNodes()
         GohanSprite.run(SKAction.repeatForever(SKAction.animate(with: GohanIdleFrames, timePerFrame:0.2, resize: true, restore: true)),withKey:"GohanIdle")
+        setupJoystick()
     }
 }

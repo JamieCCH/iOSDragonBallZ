@@ -16,6 +16,7 @@
 		7D0EE6862235FE77002CB0EE /* DialogScene.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7D0EE6852235FE77002CB0EE /* DialogScene.swift */; };
 		7D0EE68A223630B2002CB0EE /* GohanIdle.atlas in Resources */ = {isa = PBXBuildFile; fileRef = 7D0EE688223630B2002CB0EE /* GohanIdle.atlas */; };
 		7D0EE68B223630B2002CB0EE /* GohanMelee.atlas in Resources */ = {isa = PBXBuildFile; fileRef = 7D0EE689223630B2002CB0EE /* GohanMelee.atlas */; };
+		7D14FCA2223971CB008C8985 /* AnalogJoystick.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7D14FCA1223971CB008C8985 /* AnalogJoystick.swift */; };
 		7D57FF7A223844DB00CDFC37 /* Character.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7D57FF79223844DB00CDFC37 /* Character.swift */; };
 		7D57FF7D2238CE7F00CDFC37 /* SonGohanAndPiccoloDaimao.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = 7D57FF7C2238CE7F00CDFC37 /* SonGohanAndPiccoloDaimao.mp3 */; };
 /* End PBXBuildFile section */
@@ -32,6 +33,7 @@
 		7D0EE6852235FE77002CB0EE /* DialogScene.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DialogScene.swift; sourceTree = "<group>"; };
 		7D0EE688223630B2002CB0EE /* GohanIdle.atlas */ = {isa = PBXFileReference; lastKnownFileType = folder.skatlas; path = GohanIdle.atlas; sourceTree = "<group>"; };
 		7D0EE689223630B2002CB0EE /* GohanMelee.atlas */ = {isa = PBXFileReference; lastKnownFileType = folder.skatlas; path = GohanMelee.atlas; sourceTree = "<group>"; };
+		7D14FCA1223971CB008C8985 /* AnalogJoystick.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AnalogJoystick.swift; sourceTree = "<group>"; };
 		7D57FF79223844DB00CDFC37 /* Character.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = Character.swift; path = DragonBallZ/Character.swift; sourceTree = SOURCE_ROOT; };
 		7D57FF7C2238CE7F00CDFC37 /* SonGohanAndPiccoloDaimao.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = SonGohanAndPiccoloDaimao.mp3; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -77,6 +79,7 @@
 				7D0EE67A2235FD66002CB0EE /* Assets.xcassets */,
 				7D0EE67C2235FD66002CB0EE /* LaunchScreen.storyboard */,
 				7D0EE67F2235FD66002CB0EE /* Info.plist */,
+				7D14FCA1223971CB008C8985 /* AnalogJoystick.swift */,
 			);
 			path = DragonBallZ;
 			sourceTree = "<group>";
@@ -173,6 +176,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				7D0EE6742235FD65002CB0EE /* GameScene.swift in Sources */,
+				7D14FCA2223971CB008C8985 /* AnalogJoystick.swift in Sources */,
 				7D0EE6762235FD65002CB0EE /* GameViewController.swift in Sources */,
 				7D57FF7A223844DB00CDFC37 /* Character.swift in Sources */,
 				7D0EE6862235FE77002CB0EE /* DialogScene.swift in Sources */,
