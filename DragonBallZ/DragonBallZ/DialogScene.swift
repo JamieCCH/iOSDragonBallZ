@@ -156,8 +156,16 @@ class DialogScene: SKScene {
         dialogueLabel.run(fadeSeq)
     }
     
+    func addBGM()
+    {
+        let BGM = SKAudioNode(fileNamed: "SonGohanAndPiccoloDaimao.mp3")
+        addChild(BGM)
+        BGM.run(SKAction.play())
+    }
+    
     override func didMove(to view: SKView) {
         super.didMove(to: view)
+        addBGM()
         addDialogueBase()
         setMugshotSprite()
         addDialogueLabel()
@@ -175,6 +183,10 @@ class DialogScene: SKScene {
                 cut += 1
                 oneCutFinished = false
             }
+        }else{
+            let transition = SKTransition.fade(with: UIColor.white, duration: 2.0)
+            let nextScene = GameScene(size: self.frame.size)
+            view?.presentScene(nextScene, transition: transition)
         }
     }
     

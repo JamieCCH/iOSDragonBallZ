@@ -17,6 +17,7 @@
 		7D0EE68A223630B2002CB0EE /* GohanIdle.atlas in Resources */ = {isa = PBXBuildFile; fileRef = 7D0EE688223630B2002CB0EE /* GohanIdle.atlas */; };
 		7D0EE68B223630B2002CB0EE /* GohanMelee.atlas in Resources */ = {isa = PBXBuildFile; fileRef = 7D0EE689223630B2002CB0EE /* GohanMelee.atlas */; };
 		7D57FF7A223844DB00CDFC37 /* Character.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7D57FF79223844DB00CDFC37 /* Character.swift */; };
+		7D57FF7D2238CE7F00CDFC37 /* SonGohanAndPiccoloDaimao.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = 7D57FF7C2238CE7F00CDFC37 /* SonGohanAndPiccoloDaimao.mp3 */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -32,6 +33,7 @@
 		7D0EE688223630B2002CB0EE /* GohanIdle.atlas */ = {isa = PBXFileReference; lastKnownFileType = folder.skatlas; path = GohanIdle.atlas; sourceTree = "<group>"; };
 		7D0EE689223630B2002CB0EE /* GohanMelee.atlas */ = {isa = PBXFileReference; lastKnownFileType = folder.skatlas; path = GohanMelee.atlas; sourceTree = "<group>"; };
 		7D57FF79223844DB00CDFC37 /* Character.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = Character.swift; path = DragonBallZ/Character.swift; sourceTree = SOURCE_ROOT; };
+		7D57FF7C2238CE7F00CDFC37 /* SonGohanAndPiccoloDaimao.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = SonGohanAndPiccoloDaimao.mp3; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -64,6 +66,7 @@
 		7D0EE66C2235FD65002CB0EE /* DragonBallZ */ = {
 			isa = PBXGroup;
 			children = (
+				7D57FF7B2238CE6F00CDFC37 /* Audio */,
 				7D0EE68722361E18002CB0EE /* Atlas */,
 				7D57FF79223844DB00CDFC37 /* Character.swift */,
 				7D0EE66D2235FD65002CB0EE /* AppDelegate.swift */,
@@ -85,6 +88,14 @@
 				7D0EE689223630B2002CB0EE /* GohanMelee.atlas */,
 			);
 			path = Atlas;
+			sourceTree = "<group>";
+		};
+		7D57FF7B2238CE6F00CDFC37 /* Audio */ = {
+			isa = PBXGroup;
+			children = (
+				7D57FF7C2238CE7F00CDFC37 /* SonGohanAndPiccoloDaimao.mp3 */,
+			);
+			path = Audio;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -147,6 +158,7 @@
 			files = (
 				7D0EE6792235FD65002CB0EE /* Main.storyboard in Resources */,
 				7D0EE67B2235FD66002CB0EE /* Assets.xcassets in Resources */,
+				7D57FF7D2238CE7F00CDFC37 /* SonGohanAndPiccoloDaimao.mp3 in Resources */,
 				7D0EE68B223630B2002CB0EE /* GohanMelee.atlas in Resources */,
 				7D0EE67E2235FD66002CB0EE /* LaunchScreen.storyboard in Resources */,
 				7D0EE68A223630B2002CB0EE /* GohanIdle.atlas in Resources */,
