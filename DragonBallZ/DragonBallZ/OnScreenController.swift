@@ -58,27 +58,17 @@ public class OnScreenController:SKNode {
     func checkDirection(){
         
         self.getStickAngle()
-        
-//        if angle > 90 && angle < 270{
-//            stickPoint = "down"
-//        }else if angle > 270 || angle < 90{
-//            stickPoint = "up"
-//        }
-        
-        if angle < 90 || angle > 270{
-            stickPoint = "up"
-        }else{
-            stickPoint = "down"
-        }
-        
-        if angle < 180{
-             stickPoint = "right"
-        }else {
+
+        if angle <= 170{
+            stickPoint = "right"
+        }else if angle >= 190 && angle <= 350{
             stickPoint = "left"
         }
-
-        
-//        print(stickPoint)
+        if angle > 350 || angle < 10{
+            stickPoint = "up"
+        }else if angle > 170 && angle < 190{
+            stickPoint = "down"
+        }
     }
     
     func setupJoystick(player playerName:SKSpriteNode) {
@@ -88,6 +78,7 @@ public class OnScreenController:SKNode {
 //        }
     }
 
+    //to set touchesBegan here is not working
 //    open override func touchesBegan(_ touches: Set<UITouch>, with event: UIEvent?) {
 //        print("touch")
 //    }

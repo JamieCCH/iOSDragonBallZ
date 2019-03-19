@@ -27,6 +27,7 @@
 		7DEDE7C422405873004D4BAC /* GohanKick.atlas in Resources */ = {isa = PBXBuildFile; fileRef = 7DEDE7BD22405873004D4BAC /* GohanKick.atlas */; };
 		7DEDE7C522405873004D4BAC /* GohanSquat.atlas in Resources */ = {isa = PBXBuildFile; fileRef = 7DEDE7BE22405873004D4BAC /* GohanSquat.atlas */; };
 		7DEDE7C622405873004D4BAC /* GohanMelee.atlas in Resources */ = {isa = PBXBuildFile; fileRef = 7DEDE7BF22405873004D4BAC /* GohanMelee.atlas */; };
+		7DEDE7C822419AC2004D4BAC /* GameOverScene.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7DEDE7C722419AC2004D4BAC /* GameOverScene.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -52,6 +53,7 @@
 		7DEDE7BD22405873004D4BAC /* GohanKick.atlas */ = {isa = PBXFileReference; lastKnownFileType = folder.skatlas; path = GohanKick.atlas; sourceTree = "<group>"; };
 		7DEDE7BE22405873004D4BAC /* GohanSquat.atlas */ = {isa = PBXFileReference; lastKnownFileType = folder.skatlas; path = GohanSquat.atlas; sourceTree = "<group>"; };
 		7DEDE7BF22405873004D4BAC /* GohanMelee.atlas */ = {isa = PBXFileReference; lastKnownFileType = folder.skatlas; path = GohanMelee.atlas; sourceTree = "<group>"; };
+		7DEDE7C722419AC2004D4BAC /* GameOverScene.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = GameOverScene.swift; path = DragonBallZ/GameOverScene.swift; sourceTree = SOURCE_ROOT; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -87,6 +89,7 @@
 				7D57FF7B2238CE6F00CDFC37 /* Audio */,
 				7D0EE68722361E18002CB0EE /* Atlas */,
 				7D0EE66D2235FD65002CB0EE /* AppDelegate.swift */,
+				7DEDE7C722419AC2004D4BAC /* GameOverScene.swift */,
 				7DEDE7B52240252B004D4BAC /* GameViewController.swift */,
 				7D57FF79223844DB00CDFC37 /* Gohan.swift */,
 				7D0EE6732235FD65002CB0EE /* GameScene.swift */,
@@ -212,6 +215,7 @@
 				7DEDE7B8224025F0004D4BAC /* OnScreenController.swift in Sources */,
 				7D57FF7A223844DB00CDFC37 /* Gohan.swift in Sources */,
 				7D0EE6862235FE77002CB0EE /* DialogScene.swift in Sources */,
+				7DEDE7C822419AC2004D4BAC /* GameOverScene.swift in Sources */,
 				7D0EE66E2235FD65002CB0EE /* AppDelegate.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
