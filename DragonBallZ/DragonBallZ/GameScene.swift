@@ -11,11 +11,12 @@ import GameplayKit
 
 class GameScene: SKScene {
     
-    let velocityMultiplier: CGFloat = 0.12
-    
     enum NodesZPosition: CGFloat{
-        case background, player, gamepad
+        case background, player, controller
     }
+    
+    let controller = OnScreenController()
+    let player = Gohan()
     
     lazy var background:SKSpriteNode = {
         var sprite = SKSpriteNode(imageNamed: "budokai")
@@ -26,92 +27,88 @@ class GameScene: SKScene {
         return sprite
     }()
     
-    lazy var analogJoystick: AnalogJoystick = {
-        let js = AnalogJoystick(diameter: 100, colors: nil, images: (substrate: #imageLiteral(resourceName: "joystickBase"), stick: #imageLiteral(resourceName: "joystick")))
-        js.position = CGPoint(x: js.radius + 50, y: self.frame.size.height/5.5)
-        js.zPosition = NodesZPosition.gamepad.rawValue
-        return js
-    }()
-    
-    lazy var kickButton:SKSpriteNode = {
-        var sprite = SKSpriteNode(imageNamed: "buttonA")
-        sprite.setScale(0.6)
-        sprite.zPosition = NodesZPosition.gamepad.rawValue
-        sprite.position = CGPoint(x: self.size.width - 110, y: self.frame.size.height/4)
-        return sprite
-    }()
-    
-    lazy var punchButton:SKSpriteNode = {
-        var sprite = SKSpriteNode(imageNamed: "buttonB")
-        sprite.setScale(0.6)
-        sprite.zPosition = NodesZPosition.gamepad.rawValue
-        sprite.position = CGPoint(x: self.size.width - 160, y: self.frame.size.height/7.5)
-        return sprite
-    }()
-    
-    lazy var fireButton:SKSpriteNode = {
-        var sprite = SKSpriteNode(imageNamed: "buttonFire")
-        sprite.setScale(0.6)
-        sprite.zPosition = NodesZPosition.gamepad.rawValue
-        sprite.position = CGPoint(x: self.size.width - 60, y: self.frame.size.height/7.5)
-        return sprite
-    }()
-    
-    
-    private var GohanSprite = SKSpriteNode()
-    private var GohanIdleFrames: [SKTexture] = []
-    
-    required init?(coder aDecoder: NSCoder){
-        super.init(coder: aDecoder)
-    }
-    
-    func setInitPosition(){
-        GohanSprite.position = CGPoint(x: frame.midX, y: GohanSprite.frame.height/2)
-    }
-    
-    func buildIdleAnimation() {
-        let idleAtlas = SKTextureAtlas(named: "GohanIdle")
-        let numImages = idleAtlas.textureNames.count - 1
-        for i in 0...numImages {
-            let idleTextureName = "Gohan_Idle\(i)"
-            GohanIdleFrames.append(idleAtlas.textureNamed(idleTextureName))
-        }
-        let firstFrameTexture = GohanIdleFrames[0]
-        GohanSprite = SKSpriteNode(texture: firstFrameTexture)
-    }
-    
     override init(size: CGSize){
-        super.init(size: size)
-        buildIdleAnimation()
-        setInitPosition()
+        super.init(size: size)}
+    
+    required init?(coder aDecoder: NSCoder) {
+        fatalError("init(coder:) has not been implemented")
     }
     
     func setupNodes(){
         addChild(background)
-        addChild(GohanSprite)
-        addChild(punchButton)
-        addChild(kickButton)
-        addChild(fireButton)
+        addChild(player.GohanSprite)
+        addChild(controller.punchButton)
+        addChild(controller.kickButton)
+        addChild(controller.fireButton)
+        addChild(controller.analogJoystick)
     }
     
-//    func setAnimate(SpriteNode:SKSpriteNode, TextureName:[SKTexture], Interval:Double, CanResize: Bool, CanRestore: Bool, KeyName:String){
-//        SpriteNode.run(SKAction.repeatForever(
-//            SKAction.animate(with: TextureName, timePerFrame:Interval, resize: CanRestore, restore: CanRestore)),withKey:KeyName)
-//    }
-    
-    func setupJoystick() {
-        addChild(analogJoystick)
+    func setNodesPositions(){
+        controller.analogJoystick.zPosition = NodesZPosition.controller.rawValue
+        controller.kickButton.zPosition = NodesZPosition.controller.rawValue
+        controller.punchButton.zPosition = NodesZPosition.controller.rawValue
+        controller.fireButton.zPosition = NodesZPosition.controller.rawValue
+        controller.analogJoystick.position = CGPoint(x: controller.analogJoystick.radius + 50, y: frame.size.height/5.5)
+        controller.kickButton.position = CGPoint(x: self.size.width - 110, y: self.frame.size.height/4)
+        controller.punchButton.position = CGPoint(x: self.size.width - 160, y: self.frame.size.height/7.5)
+        controller.fireButton.position = CGPoint(x: self.size.width - 60, y: self.frame.size.height/7.5)
         
-        analogJoystick.trackingHandler = { [unowned self] data in
-            self.GohanSprite.position = CGPoint(x: self.GohanSprite.position.x + (data.velocity.x * self.velocityMultiplier),
-                                                y: self.GohanSprite.position.y + (data.velocity.y * self.velocityMultiplier))
-            self.GohanSprite.zRotation = data.angular
-        }
+        player.GohanSprite.position = CGPoint(x: frame.midX, y: player.GohanSprite.size.height)
+        player.GohanSprite.zPosition = NodesZPosition.player.rawValue
+        player.GohanSprite.setScale(1.2)
+    }
+    
+    func setupController(){
+        controller.setupJoystick(player: player.GohanSprite)
     }
     
     override func didMove(to view: SKView) {
         setupNodes()
-        GohanSprite.run(SKAction.repeatForever(SKAction.animate(with: GohanIdleFrames, timePerFrame:0.2, resize: true, restore: true)),withKey:"GohanIdle")
-        setupJoystick()
+        setNodesPositions()
+        setupController()
+        
+        player.idle()
+        
+    }
+    
+    override func update(_ currentTime: TimeInterval) {
+        controller.checkDirection()
+        if(controller.analogJoystick.isTouched){
+            if controller.stickPoint == "up"{
+                player.jump()
+            }
+            if controller.stickPoint == "down"{
+                player.squat()
+            }
+            if controller.stickPoint == "right"{
+                player.backward()
+            }
+            if controller.stickPoint == "left"{
+                player.forward()
+            }
+        }
+    }
+    
+    override func touchesBegan(_ touches: Set<UITouch>, with event: UIEvent?) {
+        for t in touches {
+            let location = t.location(in: self)
+            let touchedNode = atPoint(location)
+            if touchedNode.name == "FireButton" {
+                print("FireButton")
+                player.fire()
+            }
+            if touchedNode.name == "PunchButton" {
+                print("PunchButton")
+                player.melee()
+            }
+            if touchedNode.name == "KickButton" {
+                print("PunchButton")
+                player.kick()
+            }
+
+        }
+//        if let touch = touches.first, controller.analogJoystick.stick == atPoint(touch.location(in: controller.analogJoystick.stick)){
+//            print("---")
+//        }
     }
 }

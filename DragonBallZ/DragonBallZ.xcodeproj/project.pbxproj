@@ -9,33 +9,49 @@
 /* Begin PBXBuildFile section */
 		7D0EE66E2235FD65002CB0EE /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7D0EE66D2235FD65002CB0EE /* AppDelegate.swift */; };
 		7D0EE6742235FD65002CB0EE /* GameScene.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7D0EE6732235FD65002CB0EE /* GameScene.swift */; };
-		7D0EE6762235FD65002CB0EE /* GameViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7D0EE6752235FD65002CB0EE /* GameViewController.swift */; };
 		7D0EE6792235FD65002CB0EE /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 7D0EE6772235FD65002CB0EE /* Main.storyboard */; };
 		7D0EE67B2235FD66002CB0EE /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 7D0EE67A2235FD66002CB0EE /* Assets.xcassets */; };
 		7D0EE67E2235FD66002CB0EE /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 7D0EE67C2235FD66002CB0EE /* LaunchScreen.storyboard */; };
 		7D0EE6862235FE77002CB0EE /* DialogScene.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7D0EE6852235FE77002CB0EE /* DialogScene.swift */; };
 		7D0EE68A223630B2002CB0EE /* GohanIdle.atlas in Resources */ = {isa = PBXBuildFile; fileRef = 7D0EE688223630B2002CB0EE /* GohanIdle.atlas */; };
-		7D0EE68B223630B2002CB0EE /* GohanMelee.atlas in Resources */ = {isa = PBXBuildFile; fileRef = 7D0EE689223630B2002CB0EE /* GohanMelee.atlas */; };
 		7D14FCA2223971CB008C8985 /* AnalogJoystick.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7D14FCA1223971CB008C8985 /* AnalogJoystick.swift */; };
-		7D57FF7A223844DB00CDFC37 /* Character.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7D57FF79223844DB00CDFC37 /* Character.swift */; };
+		7D57FF7A223844DB00CDFC37 /* Gohan.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7D57FF79223844DB00CDFC37 /* Gohan.swift */; };
 		7D57FF7D2238CE7F00CDFC37 /* SonGohanAndPiccoloDaimao.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = 7D57FF7C2238CE7F00CDFC37 /* SonGohanAndPiccoloDaimao.mp3 */; };
+		7DEDE7B422402488004D4BAC /* UIManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7DEDE7B322402488004D4BAC /* UIManager.swift */; };
+		7DEDE7B62240252B004D4BAC /* GameViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7DEDE7B52240252B004D4BAC /* GameViewController.swift */; };
+		7DEDE7B8224025F0004D4BAC /* OnScreenController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7DEDE7B7224025F0004D4BAC /* OnScreenController.swift */; };
+		7DEDE7C022405873004D4BAC /* GohanBackward.atlas in Resources */ = {isa = PBXBuildFile; fileRef = 7DEDE7B922405873004D4BAC /* GohanBackward.atlas */; };
+		7DEDE7C122405873004D4BAC /* GohanJump.atlas in Resources */ = {isa = PBXBuildFile; fileRef = 7DEDE7BA22405873004D4BAC /* GohanJump.atlas */; };
+		7DEDE7C222405873004D4BAC /* GohanForward.atlas in Resources */ = {isa = PBXBuildFile; fileRef = 7DEDE7BB22405873004D4BAC /* GohanForward.atlas */; };
+		7DEDE7C322405873004D4BAC /* GohanFire.atlas in Resources */ = {isa = PBXBuildFile; fileRef = 7DEDE7BC22405873004D4BAC /* GohanFire.atlas */; };
+		7DEDE7C422405873004D4BAC /* GohanKick.atlas in Resources */ = {isa = PBXBuildFile; fileRef = 7DEDE7BD22405873004D4BAC /* GohanKick.atlas */; };
+		7DEDE7C522405873004D4BAC /* GohanSquat.atlas in Resources */ = {isa = PBXBuildFile; fileRef = 7DEDE7BE22405873004D4BAC /* GohanSquat.atlas */; };
+		7DEDE7C622405873004D4BAC /* GohanMelee.atlas in Resources */ = {isa = PBXBuildFile; fileRef = 7DEDE7BF22405873004D4BAC /* GohanMelee.atlas */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
 		7D0EE66A2235FD65002CB0EE /* DragonBallZ.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = DragonBallZ.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		7D0EE66D2235FD65002CB0EE /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		7D0EE6732235FD65002CB0EE /* GameScene.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GameScene.swift; sourceTree = "<group>"; };
-		7D0EE6752235FD65002CB0EE /* GameViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GameViewController.swift; sourceTree = "<group>"; };
 		7D0EE6782235FD65002CB0EE /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		7D0EE67A2235FD66002CB0EE /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		7D0EE67D2235FD66002CB0EE /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		7D0EE67F2235FD66002CB0EE /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		7D0EE6852235FE77002CB0EE /* DialogScene.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DialogScene.swift; sourceTree = "<group>"; };
 		7D0EE688223630B2002CB0EE /* GohanIdle.atlas */ = {isa = PBXFileReference; lastKnownFileType = folder.skatlas; path = GohanIdle.atlas; sourceTree = "<group>"; };
-		7D0EE689223630B2002CB0EE /* GohanMelee.atlas */ = {isa = PBXFileReference; lastKnownFileType = folder.skatlas; path = GohanMelee.atlas; sourceTree = "<group>"; };
 		7D14FCA1223971CB008C8985 /* AnalogJoystick.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AnalogJoystick.swift; sourceTree = "<group>"; };
-		7D57FF79223844DB00CDFC37 /* Character.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = Character.swift; path = DragonBallZ/Character.swift; sourceTree = SOURCE_ROOT; };
+		7D57FF79223844DB00CDFC37 /* Gohan.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = Gohan.swift; path = DragonBallZ/Gohan.swift; sourceTree = SOURCE_ROOT; };
 		7D57FF7C2238CE7F00CDFC37 /* SonGohanAndPiccoloDaimao.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = SonGohanAndPiccoloDaimao.mp3; sourceTree = "<group>"; };
+		7DEDE7B322402488004D4BAC /* UIManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UIManager.swift; sourceTree = "<group>"; };
+		7DEDE7B52240252B004D4BAC /* GameViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = GameViewController.swift; sourceTree = "<group>"; };
+		7DEDE7B7224025F0004D4BAC /* OnScreenController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OnScreenController.swift; sourceTree = "<group>"; };
+		7DEDE7B922405873004D4BAC /* GohanBackward.atlas */ = {isa = PBXFileReference; lastKnownFileType = folder.skatlas; path = GohanBackward.atlas; sourceTree = "<group>"; };
+		7DEDE7BA22405873004D4BAC /* GohanJump.atlas */ = {isa = PBXFileReference; lastKnownFileType = folder.skatlas; path = GohanJump.atlas; sourceTree = "<group>"; };
+		7DEDE7BB22405873004D4BAC /* GohanForward.atlas */ = {isa = PBXFileReference; lastKnownFileType = folder.skatlas; path = GohanForward.atlas; sourceTree = "<group>"; };
+		7DEDE7BC22405873004D4BAC /* GohanFire.atlas */ = {isa = PBXFileReference; lastKnownFileType = folder.skatlas; path = GohanFire.atlas; sourceTree = "<group>"; };
+		7DEDE7BD22405873004D4BAC /* GohanKick.atlas */ = {isa = PBXFileReference; lastKnownFileType = folder.skatlas; path = GohanKick.atlas; sourceTree = "<group>"; };
+		7DEDE7BE22405873004D4BAC /* GohanSquat.atlas */ = {isa = PBXFileReference; lastKnownFileType = folder.skatlas; path = GohanSquat.atlas; sourceTree = "<group>"; };
+		7DEDE7BF22405873004D4BAC /* GohanMelee.atlas */ = {isa = PBXFileReference; lastKnownFileType = folder.skatlas; path = GohanMelee.atlas; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -70,16 +86,18 @@
 			children = (
 				7D57FF7B2238CE6F00CDFC37 /* Audio */,
 				7D0EE68722361E18002CB0EE /* Atlas */,
-				7D57FF79223844DB00CDFC37 /* Character.swift */,
 				7D0EE66D2235FD65002CB0EE /* AppDelegate.swift */,
+				7DEDE7B52240252B004D4BAC /* GameViewController.swift */,
+				7D57FF79223844DB00CDFC37 /* Gohan.swift */,
 				7D0EE6732235FD65002CB0EE /* GameScene.swift */,
+				7DEDE7B7224025F0004D4BAC /* OnScreenController.swift */,
 				7D0EE6852235FE77002CB0EE /* DialogScene.swift */,
-				7D0EE6752235FD65002CB0EE /* GameViewController.swift */,
+				7DEDE7B322402488004D4BAC /* UIManager.swift */,
+				7D14FCA1223971CB008C8985 /* AnalogJoystick.swift */,
 				7D0EE6772235FD65002CB0EE /* Main.storyboard */,
 				7D0EE67A2235FD66002CB0EE /* Assets.xcassets */,
 				7D0EE67C2235FD66002CB0EE /* LaunchScreen.storyboard */,
 				7D0EE67F2235FD66002CB0EE /* Info.plist */,
-				7D14FCA1223971CB008C8985 /* AnalogJoystick.swift */,
 			);
 			path = DragonBallZ;
 			sourceTree = "<group>";
@@ -87,8 +105,14 @@
 		7D0EE68722361E18002CB0EE /* Atlas */ = {
 			isa = PBXGroup;
 			children = (
+				7DEDE7B922405873004D4BAC /* GohanBackward.atlas */,
+				7DEDE7BC22405873004D4BAC /* GohanFire.atlas */,
+				7DEDE7BB22405873004D4BAC /* GohanForward.atlas */,
+				7DEDE7BA22405873004D4BAC /* GohanJump.atlas */,
+				7DEDE7BD22405873004D4BAC /* GohanKick.atlas */,
+				7DEDE7BF22405873004D4BAC /* GohanMelee.atlas */,
+				7DEDE7BE22405873004D4BAC /* GohanSquat.atlas */,
 				7D0EE688223630B2002CB0EE /* GohanIdle.atlas */,
-				7D0EE689223630B2002CB0EE /* GohanMelee.atlas */,
 			);
 			path = Atlas;
 			sourceTree = "<group>";
@@ -159,12 +183,18 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				7DEDE7C322405873004D4BAC /* GohanFire.atlas in Resources */,
+				7DEDE7C522405873004D4BAC /* GohanSquat.atlas in Resources */,
+				7DEDE7C122405873004D4BAC /* GohanJump.atlas in Resources */,
 				7D0EE6792235FD65002CB0EE /* Main.storyboard in Resources */,
 				7D0EE67B2235FD66002CB0EE /* Assets.xcassets in Resources */,
+				7DEDE7C022405873004D4BAC /* GohanBackward.atlas in Resources */,
 				7D57FF7D2238CE7F00CDFC37 /* SonGohanAndPiccoloDaimao.mp3 in Resources */,
-				7D0EE68B223630B2002CB0EE /* GohanMelee.atlas in Resources */,
 				7D0EE67E2235FD66002CB0EE /* LaunchScreen.storyboard in Resources */,
+				7DEDE7C622405873004D4BAC /* GohanMelee.atlas in Resources */,
+				7DEDE7C422405873004D4BAC /* GohanKick.atlas in Resources */,
 				7D0EE68A223630B2002CB0EE /* GohanIdle.atlas in Resources */,
+				7DEDE7C222405873004D4BAC /* GohanForward.atlas in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -175,10 +205,12 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				7DEDE7B62240252B004D4BAC /* GameViewController.swift in Sources */,
+				7DEDE7B422402488004D4BAC /* UIManager.swift in Sources */,
 				7D0EE6742235FD65002CB0EE /* GameScene.swift in Sources */,
 				7D14FCA2223971CB008C8985 /* AnalogJoystick.swift in Sources */,
-				7D0EE6762235FD65002CB0EE /* GameViewController.swift in Sources */,
-				7D57FF7A223844DB00CDFC37 /* Character.swift in Sources */,
+				7DEDE7B8224025F0004D4BAC /* OnScreenController.swift in Sources */,
+				7D57FF7A223844DB00CDFC37 /* Gohan.swift in Sources */,
 				7D0EE6862235FE77002CB0EE /* DialogScene.swift in Sources */,
 				7D0EE66E2235FD65002CB0EE /* AppDelegate.swift in Sources */,
 			);

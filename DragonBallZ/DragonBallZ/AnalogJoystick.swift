@@ -131,6 +131,8 @@ open class AnalogJoystick: SKNode {
     private var tracking = false
     private(set) var data = AnalogJoystickData()
     
+    public var isTouched = false
+    
     var disabled: Bool {
         get {
             return !isUserInteractionEnabled
@@ -205,15 +207,16 @@ open class AnalogJoystick: SKNode {
     
     //MARK: - Overrides
     open override func touchesBegan(_ touches: Set<UITouch>, with event: UIEvent?) {
-        
         if let touch = touches.first, stick == atPoint(touch.location(in: self)) {
             tracking = true
             beginHandler?()
+            
+            isTouched = true
         }
     }
     
     open override func touchesMoved(_ touches: Set<UITouch>, with event: UIEvent?) {
-        
+        isTouched = false
         for touch: AnyObject in touches {
             let location = touch.location(in: self)
             
