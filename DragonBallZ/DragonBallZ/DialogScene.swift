@@ -15,7 +15,7 @@ class DialogScene: SKScene {
     private var GohanFrames: [SKTexture] = []
     private var PiccoloSprite = SKSpriteNode()
     private var PiccoloFrames: [SKTexture] = []
-    private let dialogueLabel = SKLabelNode(fontNamed: "Consolas")
+    private let dialogueLabel = SKLabelNode(fontNamed: "Chalkduster")
     private var cut = 0;
     private var PiccoloIsTalking = true;
     private var oneCutFinished = false;

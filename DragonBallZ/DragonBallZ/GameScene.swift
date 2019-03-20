@@ -15,11 +15,12 @@ let playerCategory: UInt32 = 0x1 << 1
 class GameScene: SKScene, SKPhysicsContactDelegate {
     
     enum NodesZPosition: CGFloat{
-        case background, player, controller
+        case background, player, controller,hpBar, UI
     }
     
     let controller = OnScreenController()
     let player = Gohan()
+    let UI = UIManager()
     
     lazy var background:SKSpriteNode = {
         var sprite = SKSpriteNode(imageNamed: "budokai")
@@ -44,6 +45,11 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
         addChild(controller.kickButton)
         addChild(controller.fireButton)
         addChild(controller.analogJoystick)
+        addChild(UI.timerLabel)
+        addChild(UI.enemyMugshot)
+        addChild(UI.playerMugshot)
+        addChild(UI.playerHpBar)
+        addChild(UI.enemyHpBar)
     }
     
     func setPhysics(){
@@ -73,6 +79,25 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
         player.GohanSprite.position = CGPoint(x: frame.midX, y: player.GohanSprite.size.height)
         player.GohanSprite.zPosition = NodesZPosition.player.rawValue
         player.GohanSprite.setScale(1.2)
+        
+        UI.timerLabel.position = CGPoint(x: frame.midX, y: frame.maxY - UI.timerLabel.frame.size.height*1.5)
+        UI.enemyMugshot.anchorPoint = CGPoint(x: 0.0, y: 1.0)
+        UI.enemyMugshot.position = CGPoint(x: 0.0, y: frame.maxY)
+        UI.enemyMugshot.zPosition = NodesZPosition.UI.rawValue
+        UI.playerMugshot.anchorPoint = CGPoint(x: 1.0, y: 1.0)
+        UI.playerMugshot.position = CGPoint(x: frame.maxX, y: frame.maxY)
+        UI.playerMugshot.zPosition = NodesZPosition.UI.rawValue
+        
+        UI.playerHpBar.position = CGPoint(x: frame.maxX - UI.playerMugshot.size.width,
+                                          y: frame.maxY - UI.playerMugshot.frame.size.height/2 + UI.playerHpBar.size.height/2)
+        UI.playerHpBar.anchorPoint = CGPoint(x: 1.0, y: 1.0)
+        UI.playerHpBar.zPosition = NodesZPosition.hpBar.rawValue
+        
+        UI.enemyHpBar.position = CGPoint(x: UI.enemyMugshot.size.width,
+                                         y: frame.maxY - UI.enemyMugshot.frame.size.height/2 + UI.enemyHpBar.size.height/2)
+        UI.enemyHpBar.anchorPoint = CGPoint(x: 0.0, y: 1.0)
+        UI.enemyHpBar.zPosition = NodesZPosition.hpBar.rawValue
+        
     }
     
     func setupController(){
@@ -85,6 +110,9 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
         setupController()
         setPhysics()
         player.idle()
+        
+        UI.counter = UI.counterStartVal
+        UI.startCounter()
     }
     
     override func update(_ currentTime: TimeInterval) {
@@ -109,6 +137,11 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
     }
     
     override func touchesBegan(_ touches: Set<UITouch>, with event: UIEvent?) {
+        
+        //for debug
+        UI.playerHpBar.run(SKAction.resize(byWidth: -1.5, height: 0.0, duration: 0.1))
+        UI.enemyHpBar.run(SKAction.resize(byWidth: -1.5, height: 0.0, duration: 0.1))
+        
         for t in touches {
             let location = t.location(in: self)
             let touchedNode = atPoint(location)
@@ -124,10 +157,7 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
                 print("PunchButton")
                 player.kick()
             }
-
         }
-//        if let touch = touches.first, controller.analogJoystick.stick == atPoint(touch.location(in: controller.analogJoystick.stick)){
-//            print("---")
-//        }
+
     }
 }
