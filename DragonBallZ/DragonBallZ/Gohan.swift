@@ -139,7 +139,7 @@ public class Gohan {
     }
     
     func jump(){
-        GohanSprite.run(SKAction.animate(with: GohanJumpFrames, timePerFrame:0.2, resize: true, restore: true),withKey:"GohanJump")
+        GohanSprite.run(SKAction.animate(with: GohanJumpFrames, timePerFrame:0.1, resize: true, restore: true),withKey:"GohanJump")
     }
     
     func squat(){

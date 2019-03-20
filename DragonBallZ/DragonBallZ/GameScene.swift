@@ -9,7 +9,10 @@
 import SpriteKit
 import GameplayKit
 
-class GameScene: SKScene {
+let wallCategory: UInt32 = 0x1 << 0
+let playerCategory: UInt32 = 0x1 << 1
+
+class GameScene: SKScene, SKPhysicsContactDelegate {
     
     enum NodesZPosition: CGFloat{
         case background, player, controller
@@ -43,6 +46,20 @@ class GameScene: SKScene {
         addChild(controller.analogJoystick)
     }
     
+    func setPhysics(){
+        self.physicsWorld.gravity = CGVector(dx: 0.0, dy: -9.8)
+        self.physicsWorld.contactDelegate = self
+        
+        let wallRect = CGRect(x: 0, y: 50, width: self.frame.size.width, height: self.frame.size.height)
+        let borderBody = SKPhysicsBody(edgeLoopFrom: wallRect)
+        self.physicsBody =  borderBody
+        
+        player.GohanSprite.physicsBody = SKPhysicsBody(texture: (player.GohanSprite.texture)!, size: (player.GohanSprite.size))
+        player.GohanSprite.physicsBody?.affectedByGravity = true
+        player.GohanSprite.physicsBody?.mass = 2.0
+        player.GohanSprite.physicsBody?.allowsRotation = false
+    }
+    
     func setNodesPositions(){
         controller.analogJoystick.zPosition = NodesZPosition.controller.rawValue
         controller.kickButton.zPosition = NodesZPosition.controller.rawValue
@@ -66,9 +83,8 @@ class GameScene: SKScene {
         setupNodes()
         setNodesPositions()
         setupController()
-        
+        setPhysics()
         player.idle()
-        
     }
     
     override func update(_ currentTime: TimeInterval) {
@@ -76,15 +92,18 @@ class GameScene: SKScene {
         if(controller.analogJoystick.isTouched){
             if controller.stickPoint == "up"{
                 player.jump()
+                player.GohanSprite.physicsBody?.applyImpulse(CGVector(dx: 0, dy: 250))
             }
             if controller.stickPoint == "down"{
                 player.squat()
             }
             if controller.stickPoint == "right"{
                 player.backward()
+                player.GohanSprite.physicsBody?.applyImpulse(CGVector(dx: 100, dy: 10))
             }
             if controller.stickPoint == "left"{
                 player.forward()
+                 player.GohanSprite.physicsBody?.applyImpulse(CGVector(dx: -100, dy: 10))
             }
         }
     }

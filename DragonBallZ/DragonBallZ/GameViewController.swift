@@ -20,6 +20,8 @@ class GameViewController: UIViewController {
         let skView = view as! SKView
         skView.showsFPS = true
         
+//        skView.showsPhysics = true
+        
         dialogScene = DialogScene(size: skView.bounds.size)
         dialogScene.scaleMode = .aspectFit
         

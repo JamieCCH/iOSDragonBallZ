@@ -15,7 +15,6 @@ public class OnScreenController:SKNode {
     let velocityMultiplier: CGFloat = 0.05
     var angle = CGFloat(0)
     var stickPoint = ""
-    var onTouch = false
     
     lazy var analogJoystick: AnalogJoystick = {
         let js = AnalogJoystick(diameters: (100,50), colors: nil, images: (substrate: #imageLiteral(resourceName: "joystickBase"), stick: #imageLiteral(resourceName: "joystick")))
@@ -78,7 +77,7 @@ public class OnScreenController:SKNode {
 //        }
     }
 
-    //to set touchesBegan here is not working
+//to set touchesBegan here is not working
 //    open override func touchesBegan(_ touches: Set<UITouch>, with event: UIEvent?) {
 //        print("touch")
 //    }
