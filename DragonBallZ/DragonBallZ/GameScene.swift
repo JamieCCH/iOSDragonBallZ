@@ -12,6 +12,8 @@ import GameplayKit
 let wallCategory: UInt32 = 0x1 << 0
 let playerCategory: UInt32 = 0x1 << 1
 
+public var winner = ""
+
 class GameScene: SKScene, SKPhysicsContactDelegate {
     
     enum NodesZPosition: CGFloat{
@@ -100,14 +102,14 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
         
     }
     
-    func setupController(){
-        controller.setupJoystick(player: player.GohanSprite)
-    }
+//    func setupController(){
+//        controller.setupJoystick(player: player.GohanSprite)
+//    }
     
     override func didMove(to view: SKView) {
         setupNodes()
         setNodesPositions()
-        setupController()
+//        setupController()
         setPhysics()
         player.idle()
         
@@ -115,8 +117,35 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
         UI.startCounter()
     }
     
+    func setDamage(name:SKSpriteNode,damage:CGFloat){
+//        UI.playerHpBar.run(SKAction.resize(byWidth: -1.5, height: 0.0, duration: 0.1))
+//        UI.enemyHpBar.run(SKAction.resize(byWidth: -1.5, height: 0.0, duration: 0.1))
+        name.run(SKAction.resize(byWidth: -damage, height: 0.0, duration: 0.1))
+    }
+    
+    public func getWinner() -> SKSpriteNode{
+        var winner = SKSpriteNode()
+        if(UI.playerHpBar.size.width < UI.playerHpBar.size.width){
+            winner = UI.playerMugshot
+            UI.isGameOver = true
+        }else{
+            winner = UI.enemyMugshot
+            UI.isGameOver = true
+        }
+        
+        return winner
+    }
+    
+    func loadGameOverScene(){
+        let transition = SKTransition.fade(withDuration: 2.0)
+        let nextScene = GameOverScene(size: self.frame.size)
+        view?.presentScene(nextScene, transition: transition)
+    }
+    
     override func update(_ currentTime: TimeInterval) {
         controller.checkDirection()
+        
+        //player control setup
         if(controller.analogJoystick.isTouched){
             if controller.stickPoint == "up"{
                 player.jump()
@@ -134,13 +163,33 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
                  player.GohanSprite.physicsBody?.applyImpulse(CGVector(dx: -100, dy: 10))
             }
         }
+        
+        //check game over
+        if UI.playerHpBar.size.width <= 0 || UI.enemyHpBar.size.width <= 0{
+            UI.isGameOver = true
+        }
+        
+        
+        //check winner
+        if UI.playerHpBar.size.width < UI.enemyHpBar.size.width{
+            winner = "Piccolo"
+        }else{
+            winner = "Gohan"
+        }
+        
+        if(UI.isGameOver == true)
+        {
+            loadGameOverScene()
+        }
+
     }
     
     override func touchesBegan(_ touches: Set<UITouch>, with event: UIEvent?) {
         
         //for debug
-        UI.playerHpBar.run(SKAction.resize(byWidth: -1.5, height: 0.0, duration: 0.1))
-        UI.enemyHpBar.run(SKAction.resize(byWidth: -1.5, height: 0.0, duration: 0.1))
+        setDamage(name: UI.playerHpBar,damage: 26.0)
+        print("player: \(UI.playerHpBar.size.width)")
+        print("enemy: \(UI.enemyHpBar.size.width)")
         
         for t in touches {
             let location = t.location(in: self)

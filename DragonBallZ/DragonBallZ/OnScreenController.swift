@@ -70,12 +70,12 @@ public class OnScreenController:SKNode {
         }
     }
     
-    func setupJoystick(player playerName:SKSpriteNode) {
+//    func setupJoystick(player playerName:SKSpriteNode) {
 //        analogJoystick.trackingHandler = { [unowned self] data in
 //            playerName.position.x = playerName.position.x + (data.velocity.x * self.velocityMultiplier)
 //            playerName.position = CGPoint(x: playerName.position.x + (data.velocity.x * self.velocityMultiplier),y: playerName.position.y + (data.velocity.y * self.velocityMultiplier))
 //        }
-    }
+//    }
 
 //to set touchesBegan here is not working
 //    open override func touchesBegan(_ touches: Set<UITouch>, with event: UIEvent?) {

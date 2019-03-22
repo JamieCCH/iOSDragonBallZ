@@ -61,8 +61,8 @@ public class UIManager{
             counter -= 1
             let min = counter / 60
             let sec = counter % 60
-            var minText = min < 10 ? "0\(min)" : "\(min)"
-            var secText = sec < 10 ? "0\(sec)" : "\(sec)"
+            let minText = min < 10 ? "0\(min)" : "\(min)"
+            let secText = sec < 10 ? "0\(sec)" : "\(sec)"
             
             timerLabel.text = "\(minText):\(secText)"
         }
