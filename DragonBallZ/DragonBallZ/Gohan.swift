@@ -20,10 +20,12 @@ public class Gohan {
     private var GohanSquatFrames: [SKTexture] = []
     private var GohanForwardFrames: [SKTexture] = []
     private var GohanBackwardFrames: [SKTexture] = []
+    private var GohanIsHitFrames: [SKTexture] = []
     
     public init(){
         GohanSprite = SKSpriteNode()
         buildIdleAnimation()
+        buildIsHitAnimation()
         buildFireAnimation()
         buildMileeAnimation()
         buildKickAnimation()
@@ -31,6 +33,17 @@ public class Gohan {
         buildSquatAnimation()
         buildForwardAnimation()
         buildBackwardAnimation()
+    }
+    
+    private func buildIsHitAnimation() {
+        let isHitAtlas = SKTextureAtlas(named: "GohanIsHit")
+        let numImages = isHitAtlas.textureNames.count - 1
+        for i in 0...numImages {
+            let isHitTextureName = "Gohan_IsHit\(i)"
+            GohanIsHitFrames.append(isHitAtlas.textureNamed(isHitTextureName))
+        }
+        let firstFrameTexture = GohanIsHitFrames[0]
+        GohanSprite = SKSpriteNode(texture: firstFrameTexture)
     }
     
     private func buildIdleAnimation() {
@@ -123,36 +136,51 @@ public class Gohan {
     
     func idle(){
           GohanSprite.run(SKAction.repeatForever(SKAction.animate(with: GohanIdleFrames, timePerFrame:0.2, resize: true, restore: true)),withKey:"GohanIdle")
+        playerAttacking = false
     }
     
     func kick(){
-        
-        GohanSprite.run(SKAction.animate(with: GohanKickFrames, timePerFrame:0.2, resize: true, restore: true),withKey:"GohanKick")
+        let beginAtk = SKAction.run{playerAttacking = true}
+        let kickAnim = SKAction.animate(with: GohanKickFrames, timePerFrame:0.2, resize: true, restore: true)
+        let endAtk = SKAction.run{playerAttacking = false}
+        GohanSprite.run(SKAction.sequence([beginAtk,kickAnim,endAtk]), withKey:"GohanKick")
     }
     
     func melee(){
-        GohanSprite.run(SKAction.animate(with: GohanMeleeFrames, timePerFrame:0.2, resize: true, restore: true),withKey:"GohanMelee")
+        let beginAtk = SKAction.run{playerAttacking = true}
+        let punchAnim = SKAction.animate(with: GohanMeleeFrames, timePerFrame:0.2, resize: true, restore: true)
+        let endAtk = SKAction.run{playerAttacking = false}
+        GohanSprite.run(SKAction.sequence([beginAtk,punchAnim,endAtk]), withKey:"GohanMelee")
     }
     
     func fire(){
-        GohanSprite.run(SKAction.animate(with: GohanFireFrames, timePerFrame:0.2, resize: true, restore: true),withKey:"GohanFire")
+        GohanSprite.run(SKAction.animate(with: GohanFireFrames, timePerFrame:0.1, resize: true, restore: true),withKey:"GohanFire")
     }
     
     func jump(){
         GohanSprite.run(SKAction.animate(with: GohanJumpFrames, timePerFrame:0.1, resize: true, restore: true),withKey:"GohanJump")
+        playerAttacking = false
     }
     
     func squat(){
-        GohanSprite.run(SKAction.animate(with: GohanSquatFrames, timePerFrame:0.2, resize: true, restore: true),withKey:"GohanSquat")
+        GohanSprite.run(SKAction.animate(with: GohanSquatFrames, timePerFrame:0.2, resize: true, restore:true),withKey:"GohanSquat")
+        playerAttacking = false
     }
     
     func forward(){
         GohanSprite.run(SKAction.animate(with: GohanForwardFrames, timePerFrame:0.2, resize: true, restore: true),withKey:"GohanForward")
+        playerAttacking = false
     }
     
     func backward(){
         GohanSprite.run(SKAction.animate(with: GohanBackwardFrames, timePerFrame:0.2, resize: true, restore: true),withKey:"GohanBackward")
+        playerAttacking = false
     }
     
+    func isHit(){
+        let hurtAnim = SKAction.animate(with: GohanIsHitFrames, timePerFrame:0.05, resize: true, restore: false)
+        let stopHurting = SKAction.run{playerIsHuring = false}
+        GohanSprite.run(SKAction.sequence([hurtAnim,stopHurting]), withKey:"GohanIsHit")
+    }
 }
 

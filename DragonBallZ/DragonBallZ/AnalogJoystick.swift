@@ -7,6 +7,8 @@
 //
 import SpriteKit
 
+var isTouched = false
+
 //MARK: AnalogJoystickData
 public struct AnalogJoystickData: CustomStringConvertible {
     var velocity = CGPoint.zero,
@@ -128,10 +130,8 @@ open class AnalogJoystick: SKNode {
     stopHandler: (() -> Void)?,
     substrate: AnalogJoystickSubstrate!,
     stick: AnalogJoystickStick!
-    private var tracking = false
+    public var tracking = false
     private(set) var data = AnalogJoystickData()
-    
-    public var isTouched = false
     
     var disabled: Bool {
         get {
@@ -210,20 +210,18 @@ open class AnalogJoystick: SKNode {
         if let touch = touches.first, stick == atPoint(touch.location(in: self)) {
             tracking = true
             beginHandler?()
-            
             isTouched = true
         }
     }
     
     open override func touchesMoved(_ touches: Set<UITouch>, with event: UIEvent?) {
-        isTouched = false
         for touch: AnyObject in touches {
             let location = touch.location(in: self)
             
             guard tracking else {
                 return
             }
-            
+        
             let maxDistantion = substrate.radius,
             realDistantion = sqrt(pow(location.x, 2) + pow(location.y, 2)),
             needPosition = realDistantion <= maxDistantion ? CGPoint(x: location.x, y: location.y) : CGPoint(x: location.x / realDistantion * maxDistantion, y: location.y / realDistantion * maxDistantion)
@@ -253,6 +251,7 @@ open class AnalogJoystick: SKNode {
         stick.run(moveToBack)
         data.reset()
         stopHandler?();
+        isTouched = false
     }
 }
 

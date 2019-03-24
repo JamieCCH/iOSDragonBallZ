@@ -15,7 +15,7 @@ class DialogScene: SKScene {
     private var GohanFrames: [SKTexture] = []
     private var PiccoloSprite = SKSpriteNode()
     private var PiccoloFrames: [SKTexture] = []
-    private let dialogueLabel = SKLabelNode(fontNamed: "Chalkduster")
+    private let dialogueLabel = SKLabelNode(fontNamed: "MarkerFelt-Thin")
     private var cut = 0;
     private var PiccoloIsTalking = true;
     private var oneCutFinished = false;
@@ -105,7 +105,7 @@ class DialogScene: SKScene {
         
         if cut == 0 {
             if PiccoloIsTalking{
-                dialogueLabel.text = "Kid, Now I've taught you all. Let's do some practical fighting tests"
+                dialogueLabel.text = "Kid, Now I've taught you all. Let's do some practical fighting test"
                 PiccoloSprite.texture = PiccoloFrames[0]
             }else{
                 dialogueLabel.text = "Uh? I thought you're gonna show me more skills, aren't you?"

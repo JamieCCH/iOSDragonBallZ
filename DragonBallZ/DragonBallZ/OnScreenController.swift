@@ -44,6 +44,7 @@ public class OnScreenController:SKNode {
     
     //Convert to degrees: 0° is up, 90° is right, 180° is down and 270° is left
     func getStickAngle() {
+       
         if (analogJoystick.data.velocity != CGPoint.zero){
             if analogJoystick.data.angular < 0 {
                 angle = -analogJoystick.data.angular * 180.0 / .pi
@@ -57,17 +58,25 @@ public class OnScreenController:SKNode {
     func checkDirection(){
         
         self.getStickAngle()
-
+        
         if angle <= 170{
             stickPoint = "right"
         }else if angle >= 190 && angle <= 350{
             stickPoint = "left"
         }
-        if angle > 350 || angle < 10{
+        if angle > 345 || angle < 15{
             stickPoint = "up"
         }else if angle > 170 && angle < 190{
             stickPoint = "down"
         }
+    }
+    
+    func getStickDistance()-> CGFloat{
+        //Calculate stick's displacements between moving location and the substrate's center
+        let deltaX = analogJoystick.stick.position.x - analogJoystick.substrate.position.x
+        let deltaY = analogJoystick.stick.position.y - analogJoystick.substrate.position.y
+        let distance = sqrt((deltaX * deltaX) + (deltaY * deltaY));
+        return distance
     }
     
 //    func setupJoystick(player playerName:SKSpriteNode) {

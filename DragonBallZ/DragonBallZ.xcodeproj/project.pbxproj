@@ -17,6 +17,23 @@
 		7D14FCA2223971CB008C8985 /* AnalogJoystick.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7D14FCA1223971CB008C8985 /* AnalogJoystick.swift */; };
 		7D57FF7A223844DB00CDFC37 /* Gohan.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7D57FF79223844DB00CDFC37 /* Gohan.swift */; };
 		7D57FF7D2238CE7F00CDFC37 /* SonGohanAndPiccoloDaimao.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = 7D57FF7C2238CE7F00CDFC37 /* SonGohanAndPiccoloDaimao.mp3 */; };
+		7D9483C022469C5100550FAE /* PiccoloKick.atlas in Resources */ = {isa = PBXBuildFile; fileRef = 7D9483BA22469C5000550FAE /* PiccoloKick.atlas */; };
+		7D9483C122469C5100550FAE /* PiccoloForward.atlas in Resources */ = {isa = PBXBuildFile; fileRef = 7D9483BB22469C5000550FAE /* PiccoloForward.atlas */; };
+		7D9483C222469C5100550FAE /* PiccoloJump.atlas in Resources */ = {isa = PBXBuildFile; fileRef = 7D9483BC22469C5000550FAE /* PiccoloJump.atlas */; };
+		7D9483C322469C5100550FAE /* PiccoloPunch.atlas in Resources */ = {isa = PBXBuildFile; fileRef = 7D9483BD22469C5000550FAE /* PiccoloPunch.atlas */; };
+		7D9483C422469C5100550FAE /* PiccoloFire.atlas in Resources */ = {isa = PBXBuildFile; fileRef = 7D9483BE22469C5000550FAE /* PiccoloFire.atlas */; };
+		7D9483C522469C5100550FAE /* PiccoloBackward.atlas in Resources */ = {isa = PBXBuildFile; fileRef = 7D9483BF22469C5000550FAE /* PiccoloBackward.atlas */; };
+		7D9483C722469C9700550FAE /* Piccolo.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7D9483C622469C9700550FAE /* Piccolo.swift */; };
+		7D9483C922469FB800550FAE /* PiccoloIdle.atlas in Resources */ = {isa = PBXBuildFile; fileRef = 7D9483C822469FB800550FAE /* PiccoloIdle.atlas */; };
+		7D9483CB2246DD4200550FAE /* GFire.atlas in Resources */ = {isa = PBXBuildFile; fileRef = 7D9483CA2246DD4200550FAE /* GFire.atlas */; };
+		7D9483CD2246DFBD00550FAE /* Fire.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7D9483CC2246DFBD00550FAE /* Fire.swift */; };
+		7D9483CF2246ED7800550FAE /* GohanMove.atlas in Resources */ = {isa = PBXBuildFile; fileRef = 7D9483CE2246ED7800550FAE /* GohanMove.atlas */; };
+		7D9483D12246ED8500550FAE /* PiccoloMove.atlas in Resources */ = {isa = PBXBuildFile; fileRef = 7D9483D02246ED8500550FAE /* PiccoloMove.atlas */; };
+		7D9483D722476B7400550FAE /* PiccoloSpinKick.atlas in Resources */ = {isa = PBXBuildFile; fileRef = 7D9483D622476B7400550FAE /* PiccoloSpinKick.atlas */; };
+		7D9483D922476BE800550FAE /* PiccoloHeavyPunch.atlas in Resources */ = {isa = PBXBuildFile; fileRef = 7D9483D822476BE800550FAE /* PiccoloHeavyPunch.atlas */; };
+		7D9483DB22477E3100550FAE /* PiccoloIsHit.atlas in Resources */ = {isa = PBXBuildFile; fileRef = 7D9483DA22477E3100550FAE /* PiccoloIsHit.atlas */; };
+		7D9483DD2247E31E00550FAE /* PiccoloBlock.atlas in Resources */ = {isa = PBXBuildFile; fileRef = 7D9483DC2247E31E00550FAE /* PiccoloBlock.atlas */; };
+		7D9483E12247E79A00550FAE /* GohanIsHit.atlas in Resources */ = {isa = PBXBuildFile; fileRef = 7D9483E02247E79A00550FAE /* GohanIsHit.atlas */; };
 		7DEDE7B422402488004D4BAC /* UIManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7DEDE7B322402488004D4BAC /* UIManager.swift */; };
 		7DEDE7B62240252B004D4BAC /* GameViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7DEDE7B52240252B004D4BAC /* GameViewController.swift */; };
 		7DEDE7B8224025F0004D4BAC /* OnScreenController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7DEDE7B7224025F0004D4BAC /* OnScreenController.swift */; };
@@ -43,6 +60,23 @@
 		7D14FCA1223971CB008C8985 /* AnalogJoystick.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AnalogJoystick.swift; sourceTree = "<group>"; };
 		7D57FF79223844DB00CDFC37 /* Gohan.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = Gohan.swift; path = DragonBallZ/Gohan.swift; sourceTree = SOURCE_ROOT; };
 		7D57FF7C2238CE7F00CDFC37 /* SonGohanAndPiccoloDaimao.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = SonGohanAndPiccoloDaimao.mp3; sourceTree = "<group>"; };
+		7D9483BA22469C5000550FAE /* PiccoloKick.atlas */ = {isa = PBXFileReference; lastKnownFileType = folder.skatlas; path = PiccoloKick.atlas; sourceTree = "<group>"; };
+		7D9483BB22469C5000550FAE /* PiccoloForward.atlas */ = {isa = PBXFileReference; lastKnownFileType = folder.skatlas; path = PiccoloForward.atlas; sourceTree = "<group>"; };
+		7D9483BC22469C5000550FAE /* PiccoloJump.atlas */ = {isa = PBXFileReference; lastKnownFileType = folder.skatlas; path = PiccoloJump.atlas; sourceTree = "<group>"; };
+		7D9483BD22469C5000550FAE /* PiccoloPunch.atlas */ = {isa = PBXFileReference; lastKnownFileType = folder.skatlas; path = PiccoloPunch.atlas; sourceTree = "<group>"; };
+		7D9483BE22469C5000550FAE /* PiccoloFire.atlas */ = {isa = PBXFileReference; lastKnownFileType = folder.skatlas; path = PiccoloFire.atlas; sourceTree = "<group>"; };
+		7D9483BF22469C5000550FAE /* PiccoloBackward.atlas */ = {isa = PBXFileReference; lastKnownFileType = folder.skatlas; path = PiccoloBackward.atlas; sourceTree = "<group>"; };
+		7D9483C622469C9700550FAE /* Piccolo.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Piccolo.swift; sourceTree = "<group>"; };
+		7D9483C822469FB800550FAE /* PiccoloIdle.atlas */ = {isa = PBXFileReference; lastKnownFileType = folder.skatlas; path = PiccoloIdle.atlas; sourceTree = "<group>"; };
+		7D9483CA2246DD4200550FAE /* GFire.atlas */ = {isa = PBXFileReference; lastKnownFileType = folder.skatlas; path = GFire.atlas; sourceTree = "<group>"; };
+		7D9483CC2246DFBD00550FAE /* Fire.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Fire.swift; sourceTree = "<group>"; };
+		7D9483CE2246ED7800550FAE /* GohanMove.atlas */ = {isa = PBXFileReference; lastKnownFileType = folder.skatlas; path = GohanMove.atlas; sourceTree = "<group>"; };
+		7D9483D02246ED8500550FAE /* PiccoloMove.atlas */ = {isa = PBXFileReference; lastKnownFileType = folder.skatlas; path = PiccoloMove.atlas; sourceTree = "<group>"; };
+		7D9483D622476B7400550FAE /* PiccoloSpinKick.atlas */ = {isa = PBXFileReference; lastKnownFileType = folder.skatlas; path = PiccoloSpinKick.atlas; sourceTree = "<group>"; };
+		7D9483D822476BE800550FAE /* PiccoloHeavyPunch.atlas */ = {isa = PBXFileReference; lastKnownFileType = folder.skatlas; name = PiccoloHeavyPunch.atlas; path = ../../../../DragonBallZ_source/Piccolo/PiccoloHeavyPunch.atlas; sourceTree = "<group>"; };
+		7D9483DA22477E3100550FAE /* PiccoloIsHit.atlas */ = {isa = PBXFileReference; lastKnownFileType = folder.skatlas; path = PiccoloIsHit.atlas; sourceTree = "<group>"; };
+		7D9483DC2247E31E00550FAE /* PiccoloBlock.atlas */ = {isa = PBXFileReference; lastKnownFileType = folder.skatlas; path = PiccoloBlock.atlas; sourceTree = "<group>"; };
+		7D9483E02247E79A00550FAE /* GohanIsHit.atlas */ = {isa = PBXFileReference; lastKnownFileType = folder.skatlas; path = GohanIsHit.atlas; sourceTree = "<group>"; };
 		7DEDE7B322402488004D4BAC /* UIManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UIManager.swift; sourceTree = "<group>"; };
 		7DEDE7B52240252B004D4BAC /* GameViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = GameViewController.swift; sourceTree = "<group>"; };
 		7DEDE7B7224025F0004D4BAC /* OnScreenController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OnScreenController.swift; sourceTree = "<group>"; };
@@ -91,10 +125,12 @@
 				7D0EE66D2235FD65002CB0EE /* AppDelegate.swift */,
 				7DEDE7B52240252B004D4BAC /* GameViewController.swift */,
 				7DEDE7C722419AC2004D4BAC /* GameOverScene.swift */,
+				7DEDE7B7224025F0004D4BAC /* OnScreenController.swift */,
+				7D9483C622469C9700550FAE /* Piccolo.swift */,
 				7D57FF79223844DB00CDFC37 /* Gohan.swift */,
+				7D9483CC2246DFBD00550FAE /* Fire.swift */,
 				7D0EE6732235FD65002CB0EE /* GameScene.swift */,
 				7DEDE7B322402488004D4BAC /* UIManager.swift */,
-				7DEDE7B7224025F0004D4BAC /* OnScreenController.swift */,
 				7D0EE6852235FE77002CB0EE /* DialogScene.swift */,
 				7D14FCA1223971CB008C8985 /* AnalogJoystick.swift */,
 				7D0EE6772235FD65002CB0EE /* Main.storyboard */,
@@ -108,6 +144,21 @@
 		7D0EE68722361E18002CB0EE /* Atlas */ = {
 			isa = PBXGroup;
 			children = (
+				7D9483E02247E79A00550FAE /* GohanIsHit.atlas */,
+				7D9483DC2247E31E00550FAE /* PiccoloBlock.atlas */,
+				7D9483DA22477E3100550FAE /* PiccoloIsHit.atlas */,
+				7D9483D822476BE800550FAE /* PiccoloHeavyPunch.atlas */,
+				7D9483D622476B7400550FAE /* PiccoloSpinKick.atlas */,
+				7D9483D02246ED8500550FAE /* PiccoloMove.atlas */,
+				7D9483CE2246ED7800550FAE /* GohanMove.atlas */,
+				7D9483CA2246DD4200550FAE /* GFire.atlas */,
+				7D9483C822469FB800550FAE /* PiccoloIdle.atlas */,
+				7D9483BF22469C5000550FAE /* PiccoloBackward.atlas */,
+				7D9483BE22469C5000550FAE /* PiccoloFire.atlas */,
+				7D9483BB22469C5000550FAE /* PiccoloForward.atlas */,
+				7D9483BC22469C5000550FAE /* PiccoloJump.atlas */,
+				7D9483BA22469C5000550FAE /* PiccoloKick.atlas */,
+				7D9483BD22469C5000550FAE /* PiccoloPunch.atlas */,
 				7DEDE7B922405873004D4BAC /* GohanBackward.atlas */,
 				7DEDE7BC22405873004D4BAC /* GohanFire.atlas */,
 				7DEDE7BB22405873004D4BAC /* GohanForward.atlas */,
@@ -189,14 +240,29 @@
 				7DEDE7C322405873004D4BAC /* GohanFire.atlas in Resources */,
 				7DEDE7C522405873004D4BAC /* GohanSquat.atlas in Resources */,
 				7DEDE7C122405873004D4BAC /* GohanJump.atlas in Resources */,
+				7D9483CB2246DD4200550FAE /* GFire.atlas in Resources */,
+				7D9483C422469C5100550FAE /* PiccoloFire.atlas in Resources */,
+				7D9483C522469C5100550FAE /* PiccoloBackward.atlas in Resources */,
+				7D9483D12246ED8500550FAE /* PiccoloMove.atlas in Resources */,
+				7D9483C222469C5100550FAE /* PiccoloJump.atlas in Resources */,
 				7D0EE6792235FD65002CB0EE /* Main.storyboard in Resources */,
 				7D0EE67B2235FD66002CB0EE /* Assets.xcassets in Resources */,
+				7D9483C022469C5100550FAE /* PiccoloKick.atlas in Resources */,
+				7D9483E12247E79A00550FAE /* GohanIsHit.atlas in Resources */,
 				7DEDE7C022405873004D4BAC /* GohanBackward.atlas in Resources */,
 				7D57FF7D2238CE7F00CDFC37 /* SonGohanAndPiccoloDaimao.mp3 in Resources */,
+				7D9483D722476B7400550FAE /* PiccoloSpinKick.atlas in Resources */,
 				7D0EE67E2235FD66002CB0EE /* LaunchScreen.storyboard in Resources */,
+				7D9483DB22477E3100550FAE /* PiccoloIsHit.atlas in Resources */,
 				7DEDE7C622405873004D4BAC /* GohanMelee.atlas in Resources */,
+				7D9483DD2247E31E00550FAE /* PiccoloBlock.atlas in Resources */,
 				7DEDE7C422405873004D4BAC /* GohanKick.atlas in Resources */,
+				7D9483C322469C5100550FAE /* PiccoloPunch.atlas in Resources */,
+				7D9483C122469C5100550FAE /* PiccoloForward.atlas in Resources */,
+				7D9483CF2246ED7800550FAE /* GohanMove.atlas in Resources */,
+				7D9483C922469FB800550FAE /* PiccoloIdle.atlas in Resources */,
 				7D0EE68A223630B2002CB0EE /* GohanIdle.atlas in Resources */,
+				7D9483D922476BE800550FAE /* PiccoloHeavyPunch.atlas in Resources */,
 				7DEDE7C222405873004D4BAC /* GohanForward.atlas in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -208,7 +274,9 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				7D9483CD2246DFBD00550FAE /* Fire.swift in Sources */,
 				7DEDE7B62240252B004D4BAC /* GameViewController.swift in Sources */,
+				7D9483C722469C9700550FAE /* Piccolo.swift in Sources */,
 				7DEDE7B422402488004D4BAC /* UIManager.swift in Sources */,
 				7D0EE6742235FD65002CB0EE /* GameScene.swift in Sources */,
 				7D14FCA2223971CB008C8985 /* AnalogJoystick.swift in Sources */,

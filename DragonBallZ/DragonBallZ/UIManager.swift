@@ -19,7 +19,7 @@ public class UIManager{
     var counterStartVal = 180
 
     lazy var timerLabel:SKLabelNode = {
-        var label = SKLabelNode(fontNamed: "Chalkduster")
+        var label = SKLabelNode(fontNamed: "MarkerFelt-Wide")
         label.text = "3:00"
         label.fontColor = UIColor(displayP3Red:0.49, green:0.12, blue:0.12, alpha:1.0)
         label.horizontalAlignmentMode = .center

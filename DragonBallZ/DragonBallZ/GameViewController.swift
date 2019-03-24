@@ -12,7 +12,6 @@ import SpriteKit
 class GameViewController: UIViewController {
     
     var dialogScene: DialogScene!
-    var gamePlayScene: GameScene!
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -20,12 +19,12 @@ class GameViewController: UIViewController {
         let skView = view as! SKView
         skView.showsFPS = true
         
-//        skView.showsPhysics = true
+        skView.showsPhysics = true
         
         dialogScene = DialogScene(size: skView.bounds.size)
         dialogScene.scaleMode = .aspectFit
         
-        gamePlayScene = GameScene(size: skView.bounds.size)
+        let gamePlayScene = GameScene(size: skView.bounds.size)
         gamePlayScene.scaleMode = .aspectFit
     
         

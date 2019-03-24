@@ -12,7 +12,7 @@ import SpriteKit
 class GameOverScene: SKScene {
     
     lazy var gameOver:SKLabelNode = {
-        var label = SKLabelNode(fontNamed: "Chalkduster")
+        var label = SKLabelNode(fontNamed: "MarkerFelt-Wide")
         label.text = "Game Over"
         label.fontColor = UIColor.yellow
         label.horizontalAlignmentMode = .center
@@ -22,7 +22,7 @@ class GameOverScene: SKScene {
     }()
     
     lazy var winnerTitle:SKLabelNode = {
-        var label = SKLabelNode(fontNamed: "Chalkduster")
+        var label = SKLabelNode(fontNamed: "MarkerFelt-Thin")
         label.text = "Winner:"
         label.fontColor = UIColor.white
         label.horizontalAlignmentMode = .left
