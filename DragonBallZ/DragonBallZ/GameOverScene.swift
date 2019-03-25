@@ -47,11 +47,19 @@ class GameOverScene: SKScene {
         addChild(winnerMugshot)
     }
     
+    func addGameOverBGM()
+    {
+        let BGM = SKAudioNode(fileNamed: "gameOver.mp3")
+        addChild(BGM)
+        BGM.run(SKAction.play())
+    }
+    
     override init(size: CGSize) {
         super.init(size: size)
         addChild(gameOver)
         addChild(winnerTitle)
         addChild(restartButton)
+        addGameOverBGM()
         showWinner(winnerName: winner)
     }
     

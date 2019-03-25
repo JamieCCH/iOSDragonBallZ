@@ -19,7 +19,7 @@ class GameViewController: UIViewController {
         let skView = view as! SKView
         skView.showsFPS = true
         
-        skView.showsPhysics = true
+//        skView.showsPhysics = true
         
         dialogScene = DialogScene(size: skView.bounds.size)
         dialogScene.scaleMode = .aspectFit
@@ -32,7 +32,7 @@ class GameViewController: UIViewController {
         gameOver.scaleMode = .aspectFit
         
         
-        skView.presentScene(gamePlayScene)
+        skView.presentScene(dialogScene)
     }
     
     override var prefersStatusBarHidden: Bool {

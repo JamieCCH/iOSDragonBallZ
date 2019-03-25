@@ -19,6 +19,7 @@ var playerIsHuring = false
 var playerAttacking = false
 var enemyAttacking = false
 
+var waitToBegin = 0
 
 public var winner = ""
 
@@ -45,6 +46,17 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
     
     var inAttack = playerAction.Idle
     
+    var GohanMeleeSound = SKAction()
+    var GohanKickSound = SKAction()
+    var GohanFireSound = SKAction()
+    var GohanHitSound = SKAction()
+    var PiccoloHitSound = SKAction()
+    var PiccoloFireSound = SKAction()
+    var PiccoloAtkSound1 = SKAction()
+    var PiccoloAtkSound2 = SKAction()
+    var PiccoloMeleeSound = SKAction()
+    
+    
     lazy var background:SKSpriteNode = {
         var sprite = SKSpriteNode(imageNamed: "budokai")
         sprite.zPosition = NodesZPosition.background.rawValue
@@ -53,7 +65,6 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
         sprite.position = CGPoint(x: size.width / 2.0, y: 0.0)
         return sprite
     }()
-    
     
     override init(size: CGSize){
         super.init(size: size)
@@ -89,10 +100,11 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
         
         self.physicsBody?.categoryBitMask = wallCategory
         self.physicsBody?.contactTestBitMask = playerCategory | enemyCategory | enemyFireCategory | fireCategory
+        self.physicsBody?.collisionBitMask = playerCategory | enemyCategory
         
         player.GohanSprite.physicsBody = SKPhysicsBody(texture: (player.GohanSprite.texture)!, size: (player.GohanSprite.size))
         player.GohanSprite.physicsBody?.affectedByGravity = true
-        player.GohanSprite.physicsBody?.mass = 2.0
+        player.GohanSprite.physicsBody?.mass = 1.8
         player.GohanSprite.physicsBody?.allowsRotation = false
         player.GohanSprite.physicsBody?.categoryBitMask = playerCategory
         player.GohanSprite.physicsBody?.contactTestBitMask = enemyCategory | wallCategory | enemyFireCategory
@@ -101,7 +113,7 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
         
         enemy.PiccoloSprite.physicsBody = SKPhysicsBody(texture: (enemy.PiccoloSprite.texture)!, size: (enemy.PiccoloSprite.size))
         enemy.PiccoloSprite.physicsBody?.affectedByGravity = true
-        enemy.PiccoloSprite.physicsBody?.mass = 4.0
+        enemy.PiccoloSprite.physicsBody?.mass = 3.5
         enemy.PiccoloSprite.physicsBody?.allowsRotation = false
         enemy.PiccoloSprite.physicsBody?.categoryBitMask = enemyCategory
         enemy.PiccoloSprite.physicsBody?.contactTestBitMask = playerCategory | wallCategory | fireCategory
@@ -173,7 +185,27 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
         setHudPosition()
     }
     
+    func addSound()
+    {
+        let BGM = SKAudioNode(fileNamed: "CHA-LA_HEAD-CHA-LA.mp3")
+        addChild(BGM)
+        BGM.run(SKAction.play())
+        
+        GohanMeleeSound = SKAction.playSoundFileNamed("GohanMelee.wav", waitForCompletion: false)
+        GohanKickSound = SKAction.playSoundFileNamed("GohanKick.wav", waitForCompletion: false)
+        GohanHitSound = SKAction.playSoundFileNamed("GohanIsHit.wav", waitForCompletion: false)
+        GohanFireSound = SKAction.playSoundFileNamed("GohanFire.wav", waitForCompletion: false)
+        
+        PiccoloHitSound = SKAction.playSoundFileNamed("PiccoloIsHit.wav", waitForCompletion: false)
+        PiccoloFireSound = SKAction.playSoundFileNamed("PiccoloFire.wav", waitForCompletion: false)
+        PiccoloAtkSound1 = SKAction.playSoundFileNamed("PiccoloAttack1.wav", waitForCompletion: false)
+        PiccoloAtkSound2 = SKAction.playSoundFileNamed("PiccoloAttack2.wav", waitForCompletion: false)
+        PiccoloMeleeSound = SKAction.playSoundFileNamed("PiccoloMelee.wav", waitForCompletion: false)
+    }
+    
+    
     override func didMove(to view: SKView) {
+        addSound()
         setupNodes()
         setNodesPositions()
     
@@ -181,6 +213,7 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
         enemy.idle()
         setPhysics()
         
+        waitToBegin += 1
         UI.counter = UI.counterStartVal
         UI.startCounter()
         
@@ -251,8 +284,6 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
                     player.forward()
                 }
             }
-            
-           
         }
         //squat
         if controller.analogJoystick.tracking && controller.stickPoint == "down"{
@@ -278,34 +309,42 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
         addChild(piccoloBullet.fireSprite)
         
         piccoloBullet.shootAni()
-        piccoloBullet.fireSprite.physicsBody?.applyImpulse(CGVector(dx: -piccoloBullet.fireSprite.xScale * 10, dy: 0))
-//        let distance = abs(player.GohanSprite.position.x - enemy.PiccoloSprite.position.x)
-//
-//        let wait = SKAction.wait(forDuration: 0.3)
-//        let move = SKAction.moveBy(x: -piccoloBullet.fireSprite.xScale * distance, y:-150.0, duration: 0.5)
-//        piccoloBullet.fireSprite.run(SKAction.sequence([wait, move]))
+        piccoloBullet.fireSprite.physicsBody?.applyImpulse(CGVector(dx: -piccoloBullet.fireSprite.xScale * 10, dy: -1.2))
+    }
+    
+    func enemyRetreat(){
+        enemy.backward()
+        enemyAttacking = false
+        isRetreat = false
+        let multiplier = getDirection()
+        enemy.PiccoloSprite.run(SKAction.moveBy(x: 150 * multiplier, y: 0, duration: 0.5))
     }
     
     func pickEnemyAction(){
         let randomInt = Int.random(in: 1..<10)
-//        print("randomInt: \(randomInt)")
         if randomInt == 1{
             enemy.Punch()
+            run(PiccoloAtkSound2)
         }
         if randomInt == 2{
             enemy.kick()
+            run(PiccoloAtkSound2)
         }
         if randomInt == 3{
             enemy.heavyPunch()
+            run(PiccoloAtkSound1)
         }
         if randomInt == 4{
             enemy.spinKick()
+            run(PiccoloAtkSound1)
         }
         if randomInt == 5{
             enemy.melee()
+            run(PiccoloMeleeSound)
         }
         if randomInt == 6 || randomInt == 7 {
             enemyRetreat()
+            isRetreat = true
         }
         if randomInt > 7{
             if UI.enemyHpBar.size.width <= 100{
@@ -313,17 +352,19 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
                 isRetreat = true
             }else{
                 enemy.melee()
+                run(PiccoloMeleeSound)
             }
         }
     }
     
     func distanceAtk(){
         canFireDistAtk = true
+
         let randomInt = Int.random(in: 1..<6)
-//        print("distanceAtk randomInt: \(randomInt)")
         if randomInt < 3{
             enemy.fire()
             piccoloShoot()
+            run(PiccoloFireSound)
         }
         if randomInt >= 3 && randomInt < 5{
             enemy.jump()
@@ -345,12 +386,13 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
             enemy.PiccoloSprite.xScale = -1
         }
         
-        if !isMoveAnim && !enemyAttacking {
+        if !isMoveAnim && !enemyAttacking{
             enemy.move()
             isMoveAnim = true
         }
 
         if !isRetreat{
+            //moving toward player
             let multiplier = getDirection()
             enemy.PiccoloSprite.physicsBody?.applyImpulse(CGVector(dx: -30 * multiplier, dy: 0))
         }
@@ -369,24 +411,17 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
         }
     }
     
-    func enemyRetreat(){
-        enemy.backward()
-        isRetreat = false
-        enemyAttacking = false
-        let multiplier = getDirection()
-        enemy.PiccoloSprite.run(SKAction.moveBy(x: 150 * multiplier, y: 0, duration: 0.5))
-    }
-    
     override func update(_ currentTime: TimeInterval) {
         movePlayer()
 //        print("Pico attacking: \(enemyAttacking)")
+//        print("Gohan attacking: \(enemyAttacking)")
         
         //activate enemy's movement
         let distance = player.GohanSprite.position.x - enemy.PiccoloSprite.position.x
         if abs(distance) >= 80 && abs(distance) <= 400{
            moveEnemy()
         }
-        if abs(distance) >= 400 && !canFireDistAtk{
+        if abs(distance) >= 400 && !canFireDistAtk && UI.counter <= 180{
             distanceAtk()
         }
 
@@ -440,14 +475,17 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
                 setFirePosition()
                 shootFire()
                 inAttack = playerAction.Fire
+                run(GohanFireSound)
             }
             if touchedNode.name == "PunchButton" {
                 player.melee()
                 inAttack = playerAction.Punch
+                run(GohanMeleeSound)
             }
             if touchedNode.name == "KickButton" {
                 player.kick()
                 inAttack = playerAction.Kick
+                run(GohanKickSound)
             }
         }
     }
@@ -461,38 +499,57 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
         }
     }
     
+    
+    
     func didBegin(_ contact: SKPhysicsContact) {
         
         let contactCategory = contact.bodyA.categoryBitMask | contact.bodyB.categoryBitMask
-        switch contactCategory {
+        
+        switch contactCategory{
         case enemyCategory | fireCategory:
             let fireNode = contact.bodyA.categoryBitMask == fireCategory ? contact.bodyA.node : contact.bodyB.node
             enemy.isHit()
+            run(PiccoloHitSound)
             fireNode?.removeFromParent()
-            setDamage(name: UI.enemyHpBar, damage: 15)
+            setDamage(name: UI.enemyHpBar, damage: 5)
             break
         case playerCategory | enemyFireCategory:
             let fireNode = contact.bodyA.categoryBitMask == enemyFireCategory ? contact.bodyA.node : contact.bodyB.node
             fireNode?.removeFromParent()
             player.isHit()
-            setDamage(name: UI.playerHpBar, damage: 25)
+            run(GohanHitSound)
+            setDamage(name: UI.playerHpBar, damage: 7)
             break
+            
         case playerCategory | enemyCategory:
             if playerAttacking {
+                print("Gohan atk")
                 enemy.isHit()
+                run(PiccoloHitSound)
                 if inAttack == playerAction.Punch{
-                    setDamage(name: UI.enemyHpBar, damage: 10)
+                    setDamage(name: UI.enemyHpBar, damage: 3)
                 }
                 if inAttack == playerAction.Kick{
-                    setDamage(name: UI.enemyHpBar, damage: 20)
+                    setDamage(name: UI.enemyHpBar, damage: 8)
                 }
             }
             if enemyAttacking && !playerIsHuring{
+                print("Picco atk")
                 playerIsHuring = true
-                setDamage(name: UI.playerHpBar, damage: 10)
+                let randomDamage = Int.random(in: 5...10)
+                setDamage(name: UI.playerHpBar, damage: CGFloat(randomDamage))
                 player.isHit()
+                run(GohanHitSound)
+            }
+            if !enemyAttacking && !playerAttacking{
+                print("Nobody atk")
+                enemyRetreat()
+            }
+            if enemyAttacking && playerAttacking{
+                enemyRetreat()
             }
             break
+
         default: break
         }
     }

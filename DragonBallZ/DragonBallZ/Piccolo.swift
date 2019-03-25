@@ -205,7 +205,7 @@ public class Piccolo {
     func jump(){
 //        PiccoloSprite.run(SKAction.animate(with: PiccoloJumpFrames, timePerFrame:0.2, resize: true, restore: true),withKey:"PiccoloJump")
         let beginAtk = SKAction.run{enemyAttacking = true}
-        let jumpAnim = SKAction.animate(with: PiccoloJumpFrames, timePerFrame:0.2, resize: true, restore: true)
+        let jumpAnim = SKAction.animate(with: PiccoloJumpFrames, timePerFrame:0.15, resize: true, restore: true)
         let endAtk = SKAction.run{enemyAttacking = false}
         PiccoloSprite.run(SKAction.sequence([beginAtk,jumpAnim,endAtk]),withKey:"PiccoloJump")
     }
@@ -213,17 +213,21 @@ public class Piccolo {
     func forward(){
 //        PiccoloSprite.run(SKAction.animate(with: PiccoloForwardFrames, timePerFrame:0.45, resize: true, restore: true),withKey:"PiccoloForward")
         let beginAtk = SKAction.run{enemyAttacking = true}
-        let goAnim = SKAction.animate(with: PiccoloForwardFrames, timePerFrame:0.45, resize: true, restore: true)
+        let goAnim = SKAction.animate(with: PiccoloForwardFrames, timePerFrame:0.25, resize: true, restore: true)
         let endAtk = SKAction.run{enemyAttacking = false}
         PiccoloSprite.run(SKAction.sequence([beginAtk,goAnim,endAtk]),withKey:"PiccoloForward")
     }
     
     func backward(){
-        PiccoloSprite.run(SKAction.animate(with: PiccoloBackwardFrames, timePerFrame:0.2, resize: true, restore: true),withKey:"PiccoloBackward")
+//        PiccoloSprite.run(SKAction.animate(with: PiccoloBackwardFrames, timePerFrame:0.2, resize: true, restore: false),withKey:"PiccoloBackward")
+        let beginAtk = SKAction.run{enemyAttacking = true}
+        let backAnim = SKAction.animate(with: PiccoloBackwardFrames, timePerFrame:0.2, resize: true, restore: true)
+        let endAtk = SKAction.run{enemyAttacking = false}
+        PiccoloSprite.run(SKAction.sequence([beginAtk,backAnim,endAtk]),withKey:"PiccoloBackward")
     }
     
     func move(){
-        PiccoloSprite.run(SKAction.animate(with: PiccoloMoveFrames, timePerFrame: 0.2, resize: true, restore: true),withKey:"PiccoloMove")
+        PiccoloSprite.run(SKAction.animate(with: PiccoloMoveFrames, timePerFrame: 0.15, resize: true, restore: false),withKey:"PiccoloMove")
     }
     
     func removeAction(actionKey: String){

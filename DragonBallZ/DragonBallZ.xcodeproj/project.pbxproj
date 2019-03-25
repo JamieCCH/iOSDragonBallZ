@@ -34,6 +34,17 @@
 		7D9483DB22477E3100550FAE /* PiccoloIsHit.atlas in Resources */ = {isa = PBXBuildFile; fileRef = 7D9483DA22477E3100550FAE /* PiccoloIsHit.atlas */; };
 		7D9483DD2247E31E00550FAE /* PiccoloBlock.atlas in Resources */ = {isa = PBXBuildFile; fileRef = 7D9483DC2247E31E00550FAE /* PiccoloBlock.atlas */; };
 		7D9483E12247E79A00550FAE /* GohanIsHit.atlas in Resources */ = {isa = PBXBuildFile; fileRef = 7D9483E02247E79A00550FAE /* GohanIsHit.atlas */; };
+		7D9483E3224869C200550FAE /* CHA-LA_HEAD-CHA-LA.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = 7D9483E2224869C200550FAE /* CHA-LA_HEAD-CHA-LA.mp3 */; };
+		7D9483E522486B7600550FAE /* GohanMelee.wav in Resources */ = {isa = PBXBuildFile; fileRef = 7D9483E422486B7600550FAE /* GohanMelee.wav */; };
+		7D9483E722486BAF00550FAE /* GohanIsHit.wav in Resources */ = {isa = PBXBuildFile; fileRef = 7D9483E622486BAF00550FAE /* GohanIsHit.wav */; };
+		7D9483E922486C0500550FAE /* GohanKick.wav in Resources */ = {isa = PBXBuildFile; fileRef = 7D9483E822486C0500550FAE /* GohanKick.wav */; };
+		7D9483EB22486C7100550FAE /* GohanFire.wav in Resources */ = {isa = PBXBuildFile; fileRef = 7D9483EA22486C7100550FAE /* GohanFire.wav */; };
+		7D9483ED22486CF500550FAE /* PiccoloIsHit.wav in Resources */ = {isa = PBXBuildFile; fileRef = 7D9483EC22486CF500550FAE /* PiccoloIsHit.wav */; };
+		7D9483EF22486D1900550FAE /* PiccoloAttack1.wav in Resources */ = {isa = PBXBuildFile; fileRef = 7D9483EE22486D1900550FAE /* PiccoloAttack1.wav */; };
+		7D9483F122486D4100550FAE /* PiccoloAttack2.wav in Resources */ = {isa = PBXBuildFile; fileRef = 7D9483F022486D4100550FAE /* PiccoloAttack2.wav */; };
+		7D9483F322486D7900550FAE /* PiccoloMelee.wav in Resources */ = {isa = PBXBuildFile; fileRef = 7D9483F222486D7900550FAE /* PiccoloMelee.wav */; };
+		7D9483F522486DC500550FAE /* PiccoloFire.wav in Resources */ = {isa = PBXBuildFile; fileRef = 7D9483F422486DC500550FAE /* PiccoloFire.wav */; };
+		7D9483F72248794F00550FAE /* gameOver.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = 7D9483F62248794F00550FAE /* gameOver.mp3 */; };
 		7DEDE7B422402488004D4BAC /* UIManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7DEDE7B322402488004D4BAC /* UIManager.swift */; };
 		7DEDE7B62240252B004D4BAC /* GameViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7DEDE7B52240252B004D4BAC /* GameViewController.swift */; };
 		7DEDE7B8224025F0004D4BAC /* OnScreenController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7DEDE7B7224025F0004D4BAC /* OnScreenController.swift */; };
@@ -77,6 +88,17 @@
 		7D9483DA22477E3100550FAE /* PiccoloIsHit.atlas */ = {isa = PBXFileReference; lastKnownFileType = folder.skatlas; path = PiccoloIsHit.atlas; sourceTree = "<group>"; };
 		7D9483DC2247E31E00550FAE /* PiccoloBlock.atlas */ = {isa = PBXFileReference; lastKnownFileType = folder.skatlas; path = PiccoloBlock.atlas; sourceTree = "<group>"; };
 		7D9483E02247E79A00550FAE /* GohanIsHit.atlas */ = {isa = PBXFileReference; lastKnownFileType = folder.skatlas; path = GohanIsHit.atlas; sourceTree = "<group>"; };
+		7D9483E2224869C200550FAE /* CHA-LA_HEAD-CHA-LA.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = "CHA-LA_HEAD-CHA-LA.mp3"; sourceTree = "<group>"; };
+		7D9483E422486B7600550FAE /* GohanMelee.wav */ = {isa = PBXFileReference; lastKnownFileType = audio.wav; path = GohanMelee.wav; sourceTree = "<group>"; };
+		7D9483E622486BAF00550FAE /* GohanIsHit.wav */ = {isa = PBXFileReference; lastKnownFileType = audio.wav; path = GohanIsHit.wav; sourceTree = "<group>"; };
+		7D9483E822486C0500550FAE /* GohanKick.wav */ = {isa = PBXFileReference; lastKnownFileType = audio.wav; path = GohanKick.wav; sourceTree = "<group>"; };
+		7D9483EA22486C7100550FAE /* GohanFire.wav */ = {isa = PBXFileReference; lastKnownFileType = audio.wav; path = GohanFire.wav; sourceTree = "<group>"; };
+		7D9483EC22486CF500550FAE /* PiccoloIsHit.wav */ = {isa = PBXFileReference; lastKnownFileType = audio.wav; path = PiccoloIsHit.wav; sourceTree = "<group>"; };
+		7D9483EE22486D1900550FAE /* PiccoloAttack1.wav */ = {isa = PBXFileReference; lastKnownFileType = audio.wav; path = PiccoloAttack1.wav; sourceTree = "<group>"; };
+		7D9483F022486D4100550FAE /* PiccoloAttack2.wav */ = {isa = PBXFileReference; lastKnownFileType = audio.wav; path = PiccoloAttack2.wav; sourceTree = "<group>"; };
+		7D9483F222486D7900550FAE /* PiccoloMelee.wav */ = {isa = PBXFileReference; lastKnownFileType = audio.wav; path = PiccoloMelee.wav; sourceTree = "<group>"; };
+		7D9483F422486DC500550FAE /* PiccoloFire.wav */ = {isa = PBXFileReference; lastKnownFileType = audio.wav; path = PiccoloFire.wav; sourceTree = "<group>"; };
+		7D9483F62248794F00550FAE /* gameOver.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = gameOver.mp3; sourceTree = "<group>"; };
 		7DEDE7B322402488004D4BAC /* UIManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UIManager.swift; sourceTree = "<group>"; };
 		7DEDE7B52240252B004D4BAC /* GameViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = GameViewController.swift; sourceTree = "<group>"; };
 		7DEDE7B7224025F0004D4BAC /* OnScreenController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OnScreenController.swift; sourceTree = "<group>"; };
@@ -175,6 +197,17 @@
 			isa = PBXGroup;
 			children = (
 				7D57FF7C2238CE7F00CDFC37 /* SonGohanAndPiccoloDaimao.mp3 */,
+				7D9483E2224869C200550FAE /* CHA-LA_HEAD-CHA-LA.mp3 */,
+				7D9483E422486B7600550FAE /* GohanMelee.wav */,
+				7D9483E822486C0500550FAE /* GohanKick.wav */,
+				7D9483E622486BAF00550FAE /* GohanIsHit.wav */,
+				7D9483EC22486CF500550FAE /* PiccoloIsHit.wav */,
+				7D9483EA22486C7100550FAE /* GohanFire.wav */,
+				7D9483EE22486D1900550FAE /* PiccoloAttack1.wav */,
+				7D9483F022486D4100550FAE /* PiccoloAttack2.wav */,
+				7D9483F222486D7900550FAE /* PiccoloMelee.wav */,
+				7D9483F422486DC500550FAE /* PiccoloFire.wav */,
+				7D9483F62248794F00550FAE /* gameOver.mp3 */,
 			);
 			path = Audio;
 			sourceTree = "<group>";
@@ -241,13 +274,22 @@
 				7DEDE7C522405873004D4BAC /* GohanSquat.atlas in Resources */,
 				7DEDE7C122405873004D4BAC /* GohanJump.atlas in Resources */,
 				7D9483CB2246DD4200550FAE /* GFire.atlas in Resources */,
+				7D9483E722486BAF00550FAE /* GohanIsHit.wav in Resources */,
 				7D9483C422469C5100550FAE /* PiccoloFire.atlas in Resources */,
 				7D9483C522469C5100550FAE /* PiccoloBackward.atlas in Resources */,
+				7D9483F122486D4100550FAE /* PiccoloAttack2.wav in Resources */,
+				7D9483F522486DC500550FAE /* PiccoloFire.wav in Resources */,
+				7D9483EB22486C7100550FAE /* GohanFire.wav in Resources */,
 				7D9483D12246ED8500550FAE /* PiccoloMove.atlas in Resources */,
 				7D9483C222469C5100550FAE /* PiccoloJump.atlas in Resources */,
+				7D9483E922486C0500550FAE /* GohanKick.wav in Resources */,
+				7D9483F322486D7900550FAE /* PiccoloMelee.wav in Resources */,
+				7D9483F72248794F00550FAE /* gameOver.mp3 in Resources */,
 				7D0EE6792235FD65002CB0EE /* Main.storyboard in Resources */,
 				7D0EE67B2235FD66002CB0EE /* Assets.xcassets in Resources */,
 				7D9483C022469C5100550FAE /* PiccoloKick.atlas in Resources */,
+				7D9483E522486B7600550FAE /* GohanMelee.wav in Resources */,
+				7D9483E3224869C200550FAE /* CHA-LA_HEAD-CHA-LA.mp3 in Resources */,
 				7D9483E12247E79A00550FAE /* GohanIsHit.atlas in Resources */,
 				7DEDE7C022405873004D4BAC /* GohanBackward.atlas in Resources */,
 				7D57FF7D2238CE7F00CDFC37 /* SonGohanAndPiccoloDaimao.mp3 in Resources */,
@@ -255,10 +297,12 @@
 				7D0EE67E2235FD66002CB0EE /* LaunchScreen.storyboard in Resources */,
 				7D9483DB22477E3100550FAE /* PiccoloIsHit.atlas in Resources */,
 				7DEDE7C622405873004D4BAC /* GohanMelee.atlas in Resources */,
+				7D9483EF22486D1900550FAE /* PiccoloAttack1.wav in Resources */,
 				7D9483DD2247E31E00550FAE /* PiccoloBlock.atlas in Resources */,
 				7DEDE7C422405873004D4BAC /* GohanKick.atlas in Resources */,
 				7D9483C322469C5100550FAE /* PiccoloPunch.atlas in Resources */,
 				7D9483C122469C5100550FAE /* PiccoloForward.atlas in Resources */,
+				7D9483ED22486CF500550FAE /* PiccoloIsHit.wav in Resources */,
 				7D9483CF2246ED7800550FAE /* GohanMove.atlas in Resources */,
 				7D9483C922469FB800550FAE /* PiccoloIdle.atlas in Resources */,
 				7D0EE68A223630B2002CB0EE /* GohanIdle.atlas in Resources */,
